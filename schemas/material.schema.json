@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "elemental-ui material recipe v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "display_name",
+    "family",
+    "kind",
+    "version",
+    "author",
+    "license",
+    "seed",
+    "physical_tile_mm",
+    "parameters",
+    "references",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(geo|bot|aq|fauna|atm)\\.[a-z0-9-]+(\\.[a-z0-9-]+)+\\.v[1-9][0-9]*$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "family": {
+      "enum": [
+        "geological",
+        "botanical",
+        "aquatic",
+        "fauna",
+        "atmospheric"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "tileable-surface",
+        "bounded-object",
+        "animated-surface",
+        "volumetric-effect"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "physical_tile_mm": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "base_color_rgb",
+        "roughness",
+        "height_mm",
+        "grain",
+        "weathering"
+      ],
+      "properties": {
+        "base_color_rgb": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "roughness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "height_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "grain": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "weathering": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "creator",
+          "url",
+          "license",
+          "retrieved_at"
+        ],
+        "properties": {
+          "creator": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "prototype",
+        "render-pass",
+        "visual-review",
+        "web-pass",
+        "published"
+      ]
+    }
+  }
+}

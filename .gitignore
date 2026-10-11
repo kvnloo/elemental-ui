@@ -1,0 +1,17 @@
+# Generated artifacts
+outputs/
+web/assets/
+reports/generated/
+*.blend1
+*.blend2
+*.exr
+*.glb
+*.gltf
+*.ktx2
+*.hdr
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+.DS_Store

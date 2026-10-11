@@ -1,0 +1,24 @@
+{
+  "id": "geo.basalt.vesicular.v1",
+  "display_name": "Vesicular Basalt",
+  "family": "geological",
+  "kind": "tileable-surface",
+  "version": 1,
+  "author": "elemental-ui contributors",
+  "license": "GPL-3.0-only",
+  "seed": 84017,
+  "physical_tile_mm": 240,
+  "parameters": {
+    "base_color_rgb": [
+      40,
+      37,
+      36
+    ],
+    "roughness": 0.88,
+    "height_mm": 1.8,
+    "grain": 2.7,
+    "weathering": 0.35
+  },
+  "references": [],
+  "status": "prototype"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "geo.limestone.porous.v1",
+  "display_name": "Porous Limestone",
+  "family": "geological",
+  "kind": "tileable-surface",
+  "version": 1,
+  "author": "elemental-ui contributors",
+  "license": "GPL-3.0-only",
+  "seed": 31415,
+  "physical_tile_mm": 240,
+  "parameters": {
+    "base_color_rgb": [
+      200,
+      181,
+      154
+    ],
+    "roughness": 0.92,
+    "height_mm": 1.6,
+    "grain": 2.4,
+    "weathering": 0.28
+  },
+  "references": [],
+  "status": "prototype"
+}
