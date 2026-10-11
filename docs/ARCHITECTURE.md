@@ -1,6 +1,6 @@
 # Architecture
 
-\`\`\`
+```
 material recipe (schema / units / author / seed / references)
            |
            +--> deterministic Python draft maps -> basecolor, roughness, normal, height, preview
@@ -11,13 +11,13 @@ material recipe (schema / units / author / seed / references)
            +--> web gallery / CSS components -> lightweight semantic HTML
                                       |
                                 optional GLB / WebGL later
-\`\`\`
+```
 
 The Python draft generator and Blender shader have separate implementations in v0.1. Both read the same recipe, but visual parity and Blender baking are **unimplemented**. Do not substitute the procedural preview maps for physically measured values.
 
 ## Material model
 
-- IDs: \`geo.basalt.vesicular.v1\` and equivalents, stable and versioned.
+- IDs: `geo.basalt.vesicular.v1` and equivalents, stable and versioned.
 - Render classes: tileable surface, bounded object, animated surface, volumetric effect.
 - Web texture color space: albedo is sRGB; roughness/height/normal are **non-color**.
 - Normals are OpenGL-style tangent-space (+Y / green-up), with neutral (128, 128, 255).

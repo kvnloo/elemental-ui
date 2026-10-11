@@ -4,7 +4,7 @@
 
 Create physically inspired materials in Blender, export deterministic PBR texture packs, and use them in fast, accessible interfaces. Geological materials are the first vertical slice; botanical, aquatic, fauna, and atmospheric families follow.
 
-**License:** GNU GPL v3.0 **only** (\`GPL-3.0-only\`). Copyright © 2026 Kevin Rajan and contributors. See [LICENSE](LICENSE) and [asset provenance](docs/PROVENANCE.md).
+**License:** GNU GPL v3.0 **only** (`GPL-3.0-only`). Copyright © 2026 Kevin Rajan and contributors. See [LICENSE](LICENSE) and [asset provenance](docs/PROVENANCE.md).
 
 ## Current state
 
@@ -20,35 +20,35 @@ Create physically inspired materials in Blender, export deterministic PBR textur
 
 Python 3.10+ is sufficient for the generator and tests. No packages to install.
 
-\`\`\`bash
+```bash
 python3 tools/elemental.py doctor
 python3 tools/elemental.py validate
 python3 tools/elemental.py generate --size 256 --out web/assets
 python3 -m unittest discover -s tests -v
 python3 -m http.server 8080 -d web
-\`\`\`
+```
 
-Open **http://localhost:8080/** for the material catalog and tactile UI controls. Use \`--material geo.basalt.vesicular.v1\` to generate just basalt or \`--size 512\` for a larger texture set. Each output has a deterministic hash manifest; generated assets remain untracked.
+Open **http://localhost:8080/** for the material catalog and tactile UI controls. Use `--material geo.basalt.vesicular.v1` to generate just basalt or `--size 512` for a larger texture set. Each output has a deterministic hash manifest; generated assets remain untracked.
 
 ## Blender render (optional)
 
 Run with Blender 4.2+ (tested-version pin and render-quality verification are pending):
 
-\`\`\`bash
+```bash
 blender -b --python blender/stone_preview.py -- --material geo.basalt.vesicular.v1 --out outputs/blender --samples 32
-\`\`\`
+```
 
-The Blender route produces a procedural-stone component render and a \`.blend\` project. The CPU PNG generator is a **different draft material implementation**; the two are not assumed visually or numerically equivalent. Blender PBR texture baking and calibrated parity are follow-up work.
+The Blender route produces a procedural-stone component render and a `.blend` project. The CPU PNG generator is a **different draft material implementation**; the two are not assumed visually or numerically equivalent. Blender PBR texture baking and calibrated parity are follow-up work.
 
 ## Package layout
 
-- \`materials/geological/\`: recipe source of truth and explicit licensing
-- \`schemas/\`: JSON Schema contract
-- \`tools/elemental.py\`: deterministic texture CLI and validation
-- \`blender/stone_preview.py\`: \`bpy\` geometry, shader and studio render
-- \`web/\`: static material gallery and CSS component library
-- \`tests/\`: generator, seams, manifest and CLI tests
-- \`docs/ROADMAP.md\`: complete phase plan and acceptance criteria
+- `materials/geological/`: recipe source of truth and explicit licensing
+- `schemas/`: JSON Schema contract
+- `tools/elemental.py`: deterministic texture CLI and validation
+- `blender/stone_preview.py`: `bpy` geometry, shader and studio render
+- `web/`: static material gallery and CSS component library
+- `tests/`: generator, seams, manifest and CLI tests
+- `docs/ROADMAP.md`: complete phase plan and acceptance criteria
 
 ## Principles
 

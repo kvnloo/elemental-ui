@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e5daca">
+  <meta name="description" content="Elemental UI: an open-source natural material library and tactile accessible web controls.">
+  <title>elemental-ui · Earth, as an interface</title>
+  <link rel="stylesheet" href="./elemental.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Site navigation">
+      <a class="wordmark" href="#top">ELEMENTAL</a>
+      <p>NATURAL MATERIALS / 01</p>
+      <nav aria-label="Sections">
+        <a href="#library" aria-current="page">Material library</a>
+        <a href="#controls">Tactile controls</a>
+        <a href="#details">Material details</a>
+      </nav>
+      <small>GPL-3.0-only · Experimental material studies</small>
+    </aside>
+    <main class="main" id="top">
+      <header class="intro">
+        <span class="eyebrow">Surfaces from the Earth / Vol. 01</span>
+        <h1>Materials with<br>presence.</h1>
+        <p>A small, evolving library of procedural stone materials for immersive interfaces. Switch surfaces, explore tactile controls and inspect the first draft exports.</p>
+        <div class="searchbar">
+          <label for="material-search">Search materials</label>
+          <input id="material-search" class="el-search" type="search" autocomplete="off" placeholder="Basalt, slate, limestone…" aria-controls="material-grid">
+        </div>
+      </header>
+
+      <section id="library" aria-labelledby="library-title">
+        <div class="section-heading"><h2 id="library-title">Discover surfaces</h2><p><span id="material-count">3</span> experimental studies</p></div>
+        <div id="material-grid" class="material-grid" aria-live="polite"></div>
+        <p class="note">Previews are generated locally with <code>python3 tools/elemental.py generate --out web/assets</code>. Without generated assets, swatches display lightweight color placeholders.</p>
+      </section>
+
+      <section id="controls" class="lab" aria-labelledby="controls-title">
+        <div class="section-heading"><h2 id="controls-title">The interaction laboratory</h2><p>Real controls · stone illusion</p></div>
+        <div class="lab-grid">
+          <div class="lab-stage" id="lab-stage">
+            <div class="el-segmented" id="material-switch" role="group" aria-label="Select stone surface">
+              <button type="button" class="el-choice" aria-pressed="true" data-id="geo.basalt.vesicular.v1">Basalt</button>
+              <button type="button" class="el-choice" aria-pressed="false" data-id="geo.slate.layered.v1">Slate</button>
+              <button type="button" class="el-choice" aria-pressed="false" data-id="geo.limestone.porous.v1">Limestone</button>
+            </div>
+            <button id="explore-button" type="button" class="el-surface el-button" data-material="geo.basalt.vesicular.v1">Explore <span aria-hidden="true">→</span></button>
+            <button type="button" class="el-surface el-button" data-material="geo.limestone.porous.v1" disabled>Disabled state</button>
+            <p class="el-status" id="interaction-status" role="status">Use Tab and Enter to test the controls.</p>
+          </div>
+          <aside class="lab-side" id="details" aria-labelledby="details-title">
+            <h3 id="details-title">Material inspector</h3>
+            <p id="current-material" class="serif">Vesicular Basalt</p>
+            <label for="depth-slider">Visual depth: <output id="depth-output" for="depth-slider">50</output>%</label>
+            <input class="el-range" id="depth-slider" type="range" min="0" max="100" value="50">
+            <dl>
+              <dt>Material ID</dt><dd id="current-id">geo.basalt.vesicular.v1</dd>
+              <dt>Technique</dt><dd>Seamless procedural maps + CSS</dd>
+              <dt>Validation</dt><dd>Uncalibrated prototype</dd>
+              <dt>Accessibility</dt><dd>Native HTML controls</dd>
+            </dl>
+            <p class="note" id="asset-status">Generating textures unlocks real surface previews.</p>
+          </aside>
+        </div>
+      </section>
+      <footer>
+        <p>Source and roadmap: <a href="https://github.com/kvnloo/elemental-ui">kvnloo/elemental-ui</a>. Visual studies inspired by STONE references credited to <strong>@jimiplouffe</strong>; those images are not included in this library.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+name: Core validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python sources
+        run: python -m compileall -q tools tests blender
+      - name: Validate material recipes
+        run: python tools/elemental.py validate
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Generate low-resolution PBR sample
+        run: python tools/elemental.py generate --size 64 --out outputs/smoke
+      - name: Verify manifests and artifact checksums
+        run: python tools/elemental.py validate --out outputs/smoke
+      - name: Check browser script
+        run: node --check web/app.js
+      - name: Build preview gallery assets
+        run: python tools/elemental.py generate --size 256 --out web/assets
+      - name: Upload browsable preview files
+        uses: actions/upload-artifact@v4
+        with:
+          name: elemental-ui-demo
+          path: web/
+          if-no-files-found: error
+          retention-days: 14

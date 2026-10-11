@@ -1,0 +1,108 @@
+/* elemental-ui tactile component primitives — GPL-3.0-only */
+:root {
+  --el-ink: #29251f;
+  --el-cream: #d7c6aa;
+  --el-rock: #292a2b;
+  --el-focus: #ffbd53;
+  --el-shadow: 0 5px 10px rgba(17, 15, 13, .24), 0 15px 24px rgba(17, 15, 13, .11);
+}
+.el-surface {
+  --el-fallback: linear-gradient(145deg, #343536, #17191a 65%, #313438);
+  --el-texture: none;
+  --el-foreground: #f8eee0;
+  position: relative;
+  color: var(--el-foreground);
+  background-color: #282829;
+  background-image: linear-gradient(145deg, rgba(255,255,255,.11), transparent 43%, rgba(0,0,0,.30)),
+                    var(--el-texture), var(--el-fallback);
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 1px 2px 0 rgba(255,255,255,.16), inset -2px -3px 0 rgba(0,0,0,.30), var(--el-shadow);
+  border: 1px solid rgba(10,10,10,.22);
+  border-radius: 15px;
+}
+.el-surface[data-material="geo.limestone.porous.v1"] {
+  --el-fallback: linear-gradient(145deg, #e4d8c4, #baa88b);
+  --el-foreground: #241a17;
+  background-color: #c4b198;
+}
+.el-surface[data-material="geo.slate.layered.v1"] {
+  --el-fallback: repeating-linear-gradient(168deg, #303538 0, #434b4e 5px, #272d30 12px);
+  --el-foreground: #f3eee5;
+  background-color: #353a3d;
+}
+.el-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .85rem;
+  min-height: 48px;
+  padding: .85rem 1.4rem;
+  font: 500 clamp(1.05rem, 1.7vw, 1.4rem)/1.2 Georgia, 'Times New Roman', serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+  transform: translateY(0);
+}
+.el-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.09);
+}
+.el-button:active:not(:disabled), .el-button[aria-pressed="true"] {
+  transform: translateY(2px);
+  box-shadow: inset 0 7px 13px rgba(0,0,0,.42), inset 0 0 0 3px rgba(12,10,9,.32), 0 1px 1px rgba(0,0,0,.20);
+  filter: brightness(.93);
+}
+.el-button:disabled {
+  opacity: .46;
+  cursor: not-allowed;
+  filter: grayscale(.5);
+}
+.el-button:focus-visible, .el-choice:focus-visible,
+.el-search:focus-visible, .el-range:focus-visible,
+.el-card:focus-visible {
+  outline: 3px solid var(--el-focus);
+  outline-offset: 4px;
+}
+.el-panel {
+  border-radius: 20px;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: inset 2px 2px rgba(255,255,255,.14), 0 14px 30px rgba(26,18,10,.16);
+}
+.el-inset {
+  border-radius: 14px;
+  background: rgba(0,0,0,.10);
+  box-shadow: inset 2px 4px 9px rgba(0,0,0,.29), inset -1px -2px 3px rgba(255,255,255,.13);
+  padding: 8px;
+}
+.el-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 7px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.14);
+  box-shadow: inset 2px 4px 7px rgba(0,0,0,.2);
+}
+.el-choice {
+  border: 0;
+  border-radius: 12px;
+  color: inherit;
+  background: transparent;
+  padding: .8rem 1.2rem;
+  font: 500 1rem Georgia, serif;
+  cursor: pointer;
+  min-height: 44px;
+}
+.el-choice[aria-pressed="true"] {
+  color: #f3eee5;
+  background: #242627;
+  box-shadow: inset 1px 2px 4px rgba(0,0,0,.6), 0 1px 1px rgba(255,255,255,.3);
+}
+.el-range { width: 100%; accent-color: #4c5150; cursor: pointer; }
+.el-status { min-height: 1.5em; }
+@media (prefers-reduced-motion: reduce) {
+  .el-button { transition: none; transform: none !important; }
+}
