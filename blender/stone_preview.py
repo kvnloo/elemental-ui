@@ -158,7 +158,8 @@ def build_scene(recipe, samples, size):
     bevel = slab.modifiers.new("Worn softened edges", "BEVEL")
     bevel.width = 0.008
     bevel.segments = 7
-    bevel.affect = "EDGES" if hasattr(bevel, "affect") else None
+    if hasattr(bevel, "affect"):
+        bevel.affect = "EDGES"
     slab.data.materials.append(stone_material(recipe))
     bpy.ops.object.shade_smooth()
 
