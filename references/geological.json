@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "provider": "Poly Haven",
+  "api": "https://api.polyhaven.com/files/{asset_id}",
+  "api_terms": "https://github.com/Poly-Haven/Public-API/blob/master/ToS.md",
+  "api_credit": "Powered by Poly Haven",
+  "license_note": "External CC0 scans remain CC0-1.0; not GPL-3.0-only. Studio and interface code stays GPL-3.0-only.",
+  "curated_date": "2026-10-12",
+  "assets": [
+    {
+      "asset_id": "dark_rock",
+      "display_name": "Dark Rock",
+      "creators": [
+        "Amal Kumar"
+      ],
+      "category": "Natural stratified metamorphic rock",
+      "use": "Fractures, layering and dark mineral reflectance",
+      "not_equivalent_to": "Not confirmed basalt or slate; dark appearance is not mineral identification",
+      "source_url": "https://polyhaven.com/a/dark_rock",
+      "license": "CC0-1.0",
+      "scale_statement": "2.4 m tall (publisher), orientation needs confirmation",
+      "source_status": "external-unimported"
+    },
+    {
+      "asset_id": "volcanic_rock_tiles",
+      "display_name": "Volcanic Rock Tiles",
+      "creators": [
+        "Charlotte Baglioni"
+      ],
+      "category": "Manmade pitted volcanic-rock masonry",
+      "use": "Vesicles, volcanic porosity, irregular dark surfaces",
+      "not_equivalent_to": "Contains mortar joints and manufactured tile geometry; not raw uniform basalt",
+      "source_url": "https://polyhaven.com/a/volcanic_rock_tiles",
+      "license": "CC0-1.0",
+      "scale_statement": "1.8 m wide (publisher)",
+      "source_status": "external-unimported"
+    },
+    {
+      "asset_id": "slate_floor",
+      "display_name": "Slate Floor",
+      "creators": [
+        "Dimitrios Savva"
+      ],
+      "category": "Polished/coated manmade slate flooring",
+      "use": "Slate color, fine grain and coated finish comparison",
+      "not_equivalent_to": "Gloss and grout are not representative of fractured untreated slate",
+      "source_url": "https://polyhaven.com/a/slate_floor",
+      "license": "CC0-1.0",
+      "scale_statement": "2.3 m tall (publisher)",
+      "source_status": "external-unimported"
+    },
+    {
+      "asset_id": "coral_ground_02",
+      "display_name": "Coral Ground 02",
+      "creators": [
+        "Rob Tuytel"
+      ],
+      "category": "Natural porous coral-ground/sandy limestone aggregate",
+      "use": "Pores, carbonate sand and roughness reference",
+      "not_equivalent_to": "Includes sand/gravel/debris; do not label pure quarried limestone",
+      "source_url": "https://polyhaven.com/a/coral_ground_02",
+      "license": "CC0-1.0",
+      "scale_statement": "2.0 m wide (publisher)",
+      "source_status": "external-unimported"
+    }
+  ]
+}
