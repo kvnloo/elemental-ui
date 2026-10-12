@@ -14,15 +14,15 @@ Live API usage must honor [Poly Haven API ToS](https://github.com/Poly-Haven/Pub
 
 ## Usage — nothing downloads automatically
 
-\`\`\`bash
+```bash
 python3 tools/polyhaven.py list
 python3 tools/polyhaven.py probe dark_rock
 python3 tools/polyhaven.py fetch dark_rock --resolution 1k
 python3 -m pip install Pillow
 python3 tools/polyhaven.py fetch dark_rock --resolution 1k --preview
-\`\`\`
+```
 
-All raw downloaded files and receipts are placed under \`outputs/external/polyhaven/<asset>/<1k|2k>/\` and excluded from git. The importer enforces HTTPS/Poly Haven host origins, 24 MiB per map bounds, publisher-provided MD5, independent SHA256, 1K/2K resolution, safe asset IDs, and explicit provenance. Missing maps fail except for optional displacement. This *records a reference*, not a physical material replacement and not an official publisher integration.
+All raw downloaded files and receipts are placed under `outputs/external/polyhaven/<asset>/<1k|2k>/` and excluded from git. The importer enforces HTTPS/Poly Haven host origins, 24 MiB per map bounds, publisher-provided MD5, independent SHA256, 1K/2K resolution, safe asset IDs, and explicit provenance. Missing maps fail except for optional displacement. This *records a reference*, not a physical material replacement and not an official publisher integration.
 
 ## Next tasks
 
