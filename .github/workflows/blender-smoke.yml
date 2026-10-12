@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: blender/requirements.txt
       - name: Check contract without Blender dependency
         run: python -m unittest discover -s tests -p test_pbr_assets.py -v
       - name: Generate deterministic draft PBR maps
@@ -34,27 +36,37 @@ jobs:
               manifest, maps = validate_maps("web/assets", entry.parent.name)
               print(manifest["material_id"], sorted(maps))
           PY
-      - name: Install pinned Blender Foundation Python wheel
+      - name: Install cached Blender Foundation wheel and image validator
         run: |
-          python -m pip install --disable-pip-version-check --only-binary=:all: "bpy==4.5.14"
+          python -m pip install --disable-pip-version-check --only-binary=:all: -r blender/requirements.txt
           python -c "import bpy; print('Blender', bpy.app.version_string)"
-      - name: Render PBR source maps under CPU Cycles
+      - name: Render all three PBR packs under CPU Cycles
         run: |
-          python blender/render_pbr_pack.py \
-            --material geo.basalt.vesicular.v1 \
-            --map-root web/assets --out outputs/blender \
-            --samples 4 --size 256
-      - name: Check material exposure (prevent washed-out render)
+          for material in geo.basalt.vesicular.v1 geo.slate.layered.v1 geo.limestone.porous.v1; do
+            python blender/render_pbr_pack.py \
+              --material "$material" \
+              --map-root web/assets --out outputs/blender \
+              --samples 4 --size 256
+          done
+      - name: Prevent material-family washout and black frames
         run: |
-          python -m pip install --disable-pip-version-check "Pillow==11.3.0"
+          for material in geo.basalt.vesicular.v1 geo.slate.layered.v1; do
+            python blender/check_exposure.py \
+              "outputs/blender/$material/pbr-preview.png" \
+              --min-luma 8 --max-luma 185 \
+              --report "outputs/blender/$material/exposure-receipt.json"
+          done
           python blender/check_exposure.py \
-            outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png \
-            --min-luma 8 --max-luma 180 \
-            --report outputs/blender/geo.basalt.vesicular.v1/exposure-receipt.json
-      - name: Verify render evidence exists
+            outputs/blender/geo.limestone.porous.v1/pbr-preview.png \
+            --min-luma 30 --max-luma 235 \
+            --report outputs/blender/geo.limestone.porous.v1/exposure-receipt.json
+      - name: Verify render evidence exists for every first-wave material
         run: |
-          test -s outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png
-          test -s outputs/blender/geo.basalt.vesicular.v1/pbr-render-receipt.json
+          for material in geo.basalt.vesicular.v1 geo.slate.layered.v1 geo.limestone.porous.v1; do
+            test -s "outputs/blender/$material/pbr-preview.png"
+            test -s "outputs/blender/$material/pbr-render-receipt.json"
+            test -s "outputs/blender/$material/exposure-receipt.json"
+          done
       - name: Upload headless Blender render and source receipts
         if: always()
         uses: actions/upload-artifact@v4
