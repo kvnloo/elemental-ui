@@ -144,6 +144,9 @@ def build_scene(recipe, samples, size):
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = "PNG"
     scene.render.film_transparent = False
+    if scene.world is None:
+        # Empty factory settings have no World datablock in bpy module/headless mode.
+        scene.world = bpy.data.worlds.new("Neutral studio world")
     scene.world.color = (0.07, 0.07, 0.07)
     try:
         scene.view_settings.view_transform = "AgX"
