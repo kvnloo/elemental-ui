@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "license": "GPL-3.0-only",
+  "asset_type": "AI-generated visual targets, NOT calibrated PBR maps",
+  "source": "OpenAI image generation in conversation, 2026-10-12",
+  "note": "The image filenames are staged locally but binary images have not been uploaded to GitHub. The PBR atlases are illustrations, not independently valid aligned maps.",
+  "materials": [
+    {
+      "id": "geo.basalt.vesicular.v1",
+      "slug": "basalt",
+      "traits": "Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting",
+      "expected_images": [
+        "porous_basalt_rock_texture.png",
+        "seamless_basalt_pbr_texture_atlas.png",
+        "porous_basalt_sphere_on_pedestal.png",
+        "basalt_stone_explore_interface.png",
+        "vesicular_basalt_texture_atlas.png",
+        "basalt_texture_reference_and_match.png"
+      ],
+      "prompt_templates": {
+        "hero_macro": "Full-frame orthographic macro of Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting. Material only, sharp edge-to-edge, no text, neutral cross-polarized-looking light, no props; high microdetail. Artistic reference, not measured scan.",
+        "pbr_study": "Four visually aligned panels illustrating basecolor, roughness, OpenGL tangent normal and height for Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting. Do not assume physically valid maps from generative imagery.",
+        "material_ball": "Photorealistic sphere of Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting, studio neutral key and fill, minimal dark pedestal, no text, full detail.",
+        "ui_component": "Apply Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting to carved button and card with realistic bevels, shadows and clean serif typography. Reference lookdev only.",
+        "variation_sweep": "Four variants of Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting; change grain, cleavage/pore density and weathering while maintaining geological identity.",
+        "scan_match": "Side-by-side visual comparison of Dark charcoal vesicular basalt, irregular gas cavities, granular mineral inclusions, neutral lighting, same scale and lighting; right is generated match, left is artistic reference. Not ground-truth scan."
+      }
+    },
+    {
+      "id": "geo.slate.layered.v1",
+      "slug": "slate",
+      "traits": "Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins",
+      "expected_images": [
+        "layered_charcoal_slate_texture.png",
+        "layered_slate_pbr_texture_atlas.png",
+        "layered_slate_sphere_on_dark_pedestal.png"
+      ],
+      "prompt_templates": {
+        "hero_macro": "Full-frame orthographic macro of Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins. Material only, sharp edge-to-edge, no text, neutral cross-polarized-looking light, no props; high microdetail. Artistic reference, not measured scan.",
+        "pbr_study": "Four visually aligned panels illustrating basecolor, roughness, OpenGL tangent normal and height for Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins. Do not assume physically valid maps from generative imagery.",
+        "material_ball": "Photorealistic sphere of Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins, studio neutral key and fill, minimal dark pedestal, no text, full detail.",
+        "ui_component": "Apply Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins to carved button and card with realistic bevels, shadows and clean serif typography. Reference lookdev only.",
+        "variation_sweep": "Four variants of Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins; change grain, cleavage/pore density and weathering while maintaining geological identity.",
+        "scan_match": "Side-by-side visual comparison of Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins, same scale and lighting; right is generated match, left is artistic reference. Not ground-truth scan."
+      }
+    }
+  ]
+}
