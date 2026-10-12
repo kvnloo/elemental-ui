@@ -37,3 +37,32 @@ jobs:
           path: web/
           if-no-files-found: error
           retention-days: 14
+
+  browser:
+    name: Chromium functional and responsive QA
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned browser harness
+        run: |
+          python -m pip install playwright==1.57.0
+          python -m playwright install --with-deps chromium
+      - name: Generate three material texture packs
+        run: python tools/elemental.py generate --size 128 --out web/assets
+      - name: Exercise semantic controls, keyboard, responsive layout, and reduced motion
+        run: python -m unittest discover -s tests/browser -v
+      - name: Upload mobile/desktop screenshots and size receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-qa-receipts
+          path: reports/generated/browser/
+          if-no-files-found: warn
+          retention-days: 14
+
