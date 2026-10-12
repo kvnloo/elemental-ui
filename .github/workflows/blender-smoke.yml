@@ -1,0 +1,60 @@
+name: Blender PBR smoke
+
+on:
+  pull_request:
+    paths:
+      - "blender/**"
+      - "materials/**"
+      - "tools/elemental.py"
+      - "tests/test_pbr_assets.py"
+      - ".github/workflows/blender-smoke.yml"
+  workflow_dispatch:
+
+jobs:
+  headless-cycles:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check contract without Blender dependency
+        run: python -m unittest discover -s tests -p test_pbr_assets.py -v
+      - name: Generate deterministic draft PBR maps
+        run: python tools/elemental.py generate --size 128 --out web/assets
+      - name: Verify all geology map packs before Blender import
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from blender.pbr_assets import validate_maps
+          for entry in sorted(Path("web/assets").glob("*/manifest.json")):
+              manifest, maps = validate_maps("web/assets", entry.parent.name)
+              print(manifest["material_id"], sorted(maps))
+          PY
+      - name: Install pinned Blender Foundation Python wheel
+        run: |
+          python -m pip install --disable-pip-version-check --only-binary=:all: "bpy==4.5.14"
+          python -c "import bpy; print('Blender', bpy.app.version_string)"
+      - name: Render PBR source maps under CPU Cycles
+        run: |
+          python blender/render_pbr_pack.py \
+            --material geo.basalt.vesicular.v1 \
+            --map-root web/assets --out outputs/blender \
+            --samples 4 --size 256
+      - name: Verify render evidence exists
+        run: |
+          test -s outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png
+          test -s outputs/blender/geo.basalt.vesicular.v1/pbr-render-receipt.json
+      - name: Upload headless Blender render and source receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: blender-pbr-smoke
+          path: |
+            outputs/blender/**/*.png
+            outputs/blender/**/*.json
+          if-no-files-found: warn
+          retention-days: 14
