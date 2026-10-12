@@ -144,6 +144,9 @@ def build_scene(recipe, samples, size):
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = "PNG"
     scene.render.film_transparent = False
+    if scene.world is None:
+        # Empty factory settings have no World datablock in bpy module/headless mode.
+        scene.world = bpy.data.worlds.new("Neutral studio world")
     scene.world.color = (0.07, 0.07, 0.07)
     try:
         scene.view_settings.view_transform = "AgX"
@@ -173,8 +176,10 @@ def build_scene(recipe, samples, size):
     floor_mat.node_tree.nodes.get("Principled BSDF").inputs["Base Color"].default_value = (0.045, 0.044, 0.043, 1)
     ground.data.materials.append(floor_mat)
 
-    area_light("Softbox key", (0.03, -0.16, 0.27), 100, 0.24)
-    area_light("Rim bounce", (-0.18, 0.05, 0.14), 50, 0.20)
+    # The geometry is ~21cm wide and lights are ~30cm away: the original
+    # 100/50 W rig clipped dark stone into a nearly white render.
+    area_light("Softbox key", (0.03, -0.16, 0.27), 3, 0.24)
+    area_light("Rim bounce", (-0.18, 0.05, 0.14), 1.5, 0.20)
 
     camera_data = bpy.data.cameras.new("Product orthographic")
     camera = bpy.data.objects.new("Product orthographic", camera_data)
