@@ -131,6 +131,10 @@ def main():
         "generator_status": manifest["status"],
         "blender": bpy.app.version_string,
         "renderer": "CYCLES / CPU",
+        "studio_lighting_watts": {
+            "softbox_key": bpy.data.objects["Softbox key"].data.energy,
+            "rim_bounce": bpy.data.objects["Rim bounce"].data.energy,
+        },
         "cycles_samples": args.samples,
         "seed": 42,
         "render_size": [scene.render.resolution_x, scene.render.resolution_y],

@@ -176,8 +176,10 @@ def build_scene(recipe, samples, size):
     floor_mat.node_tree.nodes.get("Principled BSDF").inputs["Base Color"].default_value = (0.045, 0.044, 0.043, 1)
     ground.data.materials.append(floor_mat)
 
-    area_light("Softbox key", (0.03, -0.16, 0.27), 100, 0.24)
-    area_light("Rim bounce", (-0.18, 0.05, 0.14), 50, 0.20)
+    # The geometry is ~21cm wide and lights are ~30cm away: the original
+    # 100/50 W rig clipped dark stone into a nearly white render.
+    area_light("Softbox key", (0.03, -0.16, 0.27), 3, 0.24)
+    area_light("Rim bounce", (-0.18, 0.05, 0.14), 1.5, 0.20)
 
     camera_data = bpy.data.cameras.new("Product orthographic")
     camera = bpy.data.objects.new("Product orthographic", camera_data)

@@ -35,3 +35,7 @@ Separate `Blender PBR smoke` workflow runs on changes to Blender/material pipeli
 2. True Blender Cycles shader baking with calibrated source and target mesh.
 3. Actual basalt/slate/limestone photographic reference boards, artist/source attribution.
 4. Screen-space visual quality/bytes comparison against the cheap CSS version.
+
+## Image exposure guard
+
+After rendering, run `python blender/check_exposure.py outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png`. This Pillow-based CI check inspects the standardized button-center luminance and rejects near-white overexposure or blacked-out output. Its broad thresholds are a regression guard, **not** photographic calibration. Source scene lighting was reduced from the early 100/50 W proof values after a real Blender run showed washed-out basalt; the render receipt records actual studio wattages.
