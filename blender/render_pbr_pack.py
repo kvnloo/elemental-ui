@@ -49,7 +49,7 @@ def image_node(nodes, name, image_path, *, non_color):
     return node
 
 
-def build_pbr_material(recipe, paths):
+def build_pbr_material(recipe, paths, *, uv_repeat=None):
     shader = bpy.data.materials.new("Baked PBR / " + recipe["id"])
     shader.use_nodes = True
     nodes = shader.node_tree.nodes
@@ -61,7 +61,13 @@ def build_pbr_material(recipe, paths):
     uv_scale = nodes.new("ShaderNodeVectorMath")
     uv_scale.operation = "MULTIPLY"
     tile = recipe["physical_tile_mm"]
-    uv_scale.inputs[1].default_value = (210.0 / tile, 85.0 / tile, 1.0)
+    # Optional explicit UV coverage supports licensed scans whose measured
+    # physical scale is unknown; it is NOT a declaration of scan tile size.
+    if uv_repeat is None:
+        uv_repeat = (210.0 / tile, 85.0 / tile)
+    if len(uv_repeat) != 2 or any(not 0 < value <= 16 for value in uv_repeat):
+        raise ValueError("uv_repeat must be two positive values <=16")
+    uv_scale.inputs[1].default_value = (uv_repeat[0], uv_repeat[1], 1.0)
     uv_scale.location = (-700, 40)
     wires.new(uv.outputs["UV"], uv_scale.inputs[0])
 
