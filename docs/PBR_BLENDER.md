@@ -4,17 +4,17 @@ This is a **narrow fidelity bridge**: the existing Python generator produces the
 
 ## From a fresh checkout
 
-Run \`python3 tools/elemental.py generate --size 128 --out web/assets\`, then either use Blender 4.5+ CLI or the official Blender Python wheel for Python 3.11:
+Run `python3 tools/elemental.py generate --size 128 --out web/assets`, then either use Blender 4.5+ CLI or the official Blender Python wheel for Python 3.11:
 
-\`\`\`bash
+```bash
 python3.11 -m pip install bpy==4.5.14
 python3.11 blender/render_pbr_pack.py --material geo.basalt.vesicular.v1 \
   --map-root web/assets --out outputs/blender --samples 8 --size 512
-\`\`\`
+```
 
-With Blender installed: \`blender -b --python blender/render_pbr_pack.py -- --material geo.basalt.vesicular.v1 --samples 8 --size 512\`.
+With Blender installed: `blender -b --python blender/render_pbr_pack.py -- --material geo.basalt.vesicular.v1 --samples 8 --size 512`.
 
-Outputs: \`outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png\`, \`pbr-preview.blend\`, \`pbr-render-receipt.json\` (Blender version, CPU samples, map hashes, PNG hash). Source code and manifest remain small; source/outputs are not committed.
+Outputs: `outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png`, `pbr-preview.blend`, `pbr-render-receipt.json` (Blender version, CPU samples, map hashes, PNG hash). Source code and manifest remain small; source/outputs are not committed.
 
 ## Correctness model
 
@@ -27,7 +27,7 @@ Outputs: \`outputs/blender/geo.basalt.vesicular.v1/pbr-preview.png\`, \`pbr-prev
 
 ## CI
 
-Separate \`Blender PBR smoke\` workflow runs on changes to Blender/material pipeline and by manual dispatch. It installs the **Blender Foundation** Python 3.11 \`bpy==4.5.14\` wheel and renders basalt at 256px; **no GPU hardware claim**. Build receipts and the PNG are attached on success. Lower the frequency if upstream binary dependency downloads become disproportionate.
+Separate `Blender PBR smoke` workflow runs on changes to Blender/material pipeline and by manual dispatch. It installs the **Blender Foundation** Python 3.11 `bpy==4.5.14` wheel and renders basalt at 256px; **no GPU hardware claim**. Build receipts and the PNG are attached on success. Lower the frequency if upstream binary dependency downloads become disproportionate.
 
 ## Next quality gate
 
