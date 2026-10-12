@@ -31,3 +31,7 @@ All raw downloaded files and receipts are placed under `outputs/external/polyhav
 3. Distinguish real capture scale from artistic tile UV: never infer length from resolution alone.
 4. Add a first-class external scanned-material schema and sampling transform (including map color-space and gamma handling) before using CC0 scans in the Blender and web gallery.
 5. Use direct geometric bevel/damage modeling for button form; photogrammetry textures alone cannot simulate chipped 3D edges.
+
+## Preview processing
+
+Original publisher maps are never changed. Contact sheets convert 16-bit single-channel roughness/height to 8-bit for display (rather than clipping to white). **Height alone** is contrast-expanded for inspection and clearly labeled; the expanded preview is *not* an exportable displacement or calibrated PBR texture.

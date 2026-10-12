@@ -91,6 +91,21 @@ class RefTests(unittest.TestCase):
             self.assertFalse(target.with_name("diffuse.png.partial").exists())
             self.assertEqual(target.read_bytes(), b"hello")  # atomic good copy retained
 
+    def test_preview_preserves_16bit_ranges_without_white_clipping(self):
+        try:
+            from PIL import Image
+        except ImportError:
+            self.skipTest("Pillow is optional in core CI")
+        grayscale = Image.new("I;16", (6, 1))
+        grayscale.putdata([10000, 12000, 20000, 25000, 32000, 40000])
+        rgba = m.preview_image(grayscale, "roughness")
+        self.assertEqual("RGB", rgba.mode)
+        self.assertLess(rgba.getextrema()[0][0], 200)  # not clipped white
+        self.assertGreater(rgba.getextrema()[0][1], rgba.getextrema()[0][0])
+        height = m.preview_image(grayscale, "height")
+        self.assertEqual(0, height.getextrema()[0][0])
+        self.assertEqual(255, height.getextrema()[0][1])
+
     def test_asset_ids_must_be_curated(self):
         for asset_id in ("../etc", "unknown_scan", "https://evil.example/x"):
             with self.assertRaises(m.ReferenceError):

@@ -174,10 +174,30 @@ def download_map(data: dict, target: Path) -> dict:
             "source_url": data["source_url"]}
 
 
+def preview_image(source, kind: str):
+    """Make grayscale 16-bit texture maps visible without modifying source pixels.
+
+    PIL's naive I;16 -> RGB conversion clips values over 255, turning roughness
+    and height into white panels. Scale to 8-bit before previewing.
+    Only height receives contrast expansion; roughness retains numeric tonality.
+    """
+    from PIL import ImageOps
+    if source.mode.startswith("I;16") or source.mode == "I":
+        working = source.convert("I")
+        if working.getextrema()[1] > 255:
+            working = working.point(lambda x: x / 257)
+        channel = working.convert("L")
+    else:
+        channel = source.convert("L") if kind in ("roughness", "height") else source
+    if kind == "height":
+        channel = ImageOps.autocontrast(channel.convert("L"), cutoff=1)
+    return channel.convert("RGB")
+
+
 def render_sheet(folder: Path, manifest: dict) -> Path:
     """Optional contact sheet with original unaltered source files kept separately."""
     try:
-        from PIL import Image, ImageDraw, ImageFont
+        from PIL import Image, ImageDraw, ImageOps
     except ImportError as exc:
         raise ReferenceError("Install Pillow for --preview") from exc
     order = [k for k in ("diffuse", "roughness", "normal_gl", "height") if k in manifest["files"]]
@@ -187,12 +207,13 @@ def render_sheet(folder: Path, manifest: dict) -> Path:
     for idx, kind in enumerate(order):
         image_path = folder / manifest["files"][kind]["file"]
         with Image.open(image_path) as loaded:
-            im = loaded.convert("RGB")
+            im = preview_image(loaded, kind)
         im.thumbnail((300, 300))
         if im.size != (300, 300):
             im = im.resize((300, 300), Image.Resampling.LANCZOS)
         sheet.paste(im, (idx * cell + 10, 15))
-        d.text((idx * cell + 10, 323), kind.upper(), fill=(233, 231, 224))
+        title = kind.upper() + (" / CONTRAST-EXPANDED" if kind == "height" else "")
+        d.text((idx * cell + 10, 323), title, fill=(233, 231, 224))
     outfile = folder / "contact-sheet.jpg"
     sheet.save(outfile, quality=86)
     return outfile
