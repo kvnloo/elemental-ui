@@ -92,7 +92,7 @@ class GalleryTests(unittest.TestCase):
         expect(self.page.locator("#current-material")).to_have_text("Porous Limestone")
         self.assertTrue(self.page.get_by_role("button", name="Disabled state").is_disabled())
         self.page.get_by_role("button", name="Explore").click()
-        expect(self.page.get_by_role("status")).to_contain_text("Explore activated with Porous Limestone")
+        expect(self.page.locator("#interaction-status")).to_contain_text("Explore activated with Porous Limestone")
 
     def test_search_filter_slider(self):
         search = self.page.get_by_role("searchbox", name="Search materials")
