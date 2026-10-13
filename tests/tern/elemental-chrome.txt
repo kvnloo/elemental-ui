@@ -1,0 +1,7 @@
+# Offscreen Tern scene for the elemental-ui plugin: two headed panes and the status line.
+# Run: TERN_CONFIG_DIR=<config with the plugin linked> tern shot tests/tern/elemental-chrome.txt --out DIR
+size 1200 760
+ready
+split right
+ready
+shot elemental-chrome

@@ -1,0 +1,8 @@
+schema = 1
+id = "elemental-ui"
+name = "elemental-ui materials"
+version = "0.1.0"
+description = "Natural material packs from elemental-ui as Tern chrome: page, pane headers and status line."
+icon = "layers"
+window = "window.luau"
+styles = ["elemental.css"]

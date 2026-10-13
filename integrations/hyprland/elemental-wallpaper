@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# elemental-wallpaper: render a lit material pack per monitor and (optionally) set it with swaybg.
+# GPL-3.0-only.
+#
+#   integrations/hyprland/elemental-wallpaper MATERIAL_ID            # render only
+#   integrations/hyprland/elemental-wallpaper MATERIAL_ID --apply    # render, then replace swaybg
+#
+# Rendering uses the native wgpu renderer (target/release/elemental-render) and the
+# shared WGSL shader, so the wallpaper matches the web runtime pixel for pixel.
+# This is the static desktop tier: zero runtime GPU cost after the render.
+set -euo pipefail
+
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+material="${1:?usage: elemental-wallpaper MATERIAL_ID [--apply]}"
+apply="${2:-}"
+render="$root/target/release/elemental-render"
+pack="$root/packs/$material"
+out="${XDG_CACHE_HOME:-$HOME/.cache}/elemental-ui/wallpapers"
+
+[[ -x "$render" ]] || { echo "build first: cargo build --release" >&2; exit 1; }
+[[ -f "$pack/pack.json" ]] || { echo "no pack $pack; run: python3 tools/elemental.py pack" >&2; exit 1; }
+command -v hyprctl >/dev/null || { echo "hyprctl not found" >&2; exit 1; }
+mkdir -p "$out"
+
+mapfile -t monitors < <(hyprctl monitors -j | python3 -c '
+import json, sys
+for m in json.load(sys.stdin):
+    print(m["name"], m["width"], m["height"])
+')
+[[ ${#monitors[@]} -gt 0 ]] || { echo "hyprctl reported no monitors" >&2; exit 1; }
+
+swaybg_args=()
+for line in "${monitors[@]}"; do
+	read -r name width height <<<"$line"
+	file="$out/$material.$name.${width}x${height}.png"
+	"$render" "$pack" "$file" "$width" "$height"
+	swaybg_args+=(-o "$name" -i "$file" -m fill)
+done
+
+if [[ "$apply" == "--apply" ]]; then
+	command -v swaybg >/dev/null || { echo "swaybg not found" >&2; exit 1; }
+	pkill -x swaybg || true
+	setsid -f swaybg "${swaybg_args[@]}" >/dev/null 2>&1
+	echo "applied with swaybg: ${swaybg_args[*]}"
+else
+	echo "rendered to $out (add --apply to set them with swaybg)"
+fi
