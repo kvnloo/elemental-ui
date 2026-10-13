@@ -62,7 +62,7 @@ Reinhard tone mapping.
 |---|---|
 | `cargo test` (pack hashes, Params layout, naga validation of the WGSL, offscreen render on GPU) | pass, RTX 3080 Ti via Vulkan |
 | Native render, 1024×640 | 8–25 ms per material, including upload |
-| WebGL2 vs native, 512×320 basalt | mean 0.0, max 0 (byte-identical) |
+| WebGL2 vs native, 512×320 basalt | ANGLE/Vulkan on the GPU: mean 0.0, max 0 (byte-identical); SwiftShader: mean 2.9, max 6/255 |
 | WebGPU (off-canvas readback, SwiftShader) vs native | mean 0.03, max 1/255 |
 | CSS tier | paints the textured base color |
 | Pointer relighting (WebGL2) | moves the light; headless rAF p95 16.8 ms |
@@ -84,5 +84,5 @@ Rerun everything:
 python3 tools/elemental.py pack && python3 tools/elemental.py pack --verify
 cargo test --release && cargo build --release
 npm install && npm run glsl:check -w @elemental-ui/web && npm run build
-ELEMENTAL_BROWSER_BIN=/usr/bin/chromium python3 -m unittest tests.browser.test_runtime -v
+ELEMENTAL_BROWSER_VULKAN=1 ELEMENTAL_BROWSER_BIN=/usr/bin/chromium python3 -m unittest tests.browser.test_runtime -v
 ```
