@@ -40,6 +40,27 @@ blender -b --python blender/stone_preview.py -- --material geo.basalt.vesicular.
 
 The Blender route produces a procedural-stone component render and a `.blend` project. The CPU PNG generator is a **different draft material implementation**; the two are not assumed visually or numerically equivalent. Blender PBR texture baking and calibrated parity are follow-up work.
 
+## Runtime (web, native, desktop, Tern)
+
+Packs (`elemental-pack/1`) are relit by one shader, `shaders/elemental_surface.wgsl`, on every target:
+
+```bash
+python3 tools/elemental.py pack                  # packs/<id>/ (GPU-repeatable maps + manifest)
+cargo build --release                            # native wgpu renderer
+./target/release/elemental-render packs/geo.basalt.vesicular.v1 basalt.png 1920 1080
+npm install && npm run build                     # @elemental-ui/web → packages/web/dist/
+python3 -m http.server 8080                      # open /packages/web/demo/
+```
+
+```html
+<script type="module" src="/packages/web/dist/elemental-ui.js"></script>
+<elemental-surface material="geo.basalt.vesicular.v1" packs="/packs" light="pointer">
+  <button>Explore</button>
+</elemental-surface>
+```
+
+The element picks WebGPU, then WebGL2 (GLSL generated from the same WGSL by naga), then a CSS tile. It draws only when something changes. Desktop: `integrations/hyprland/elemental-wallpaper` renders per-monitor wallpapers. Tern: `integrations/tern/elemental-ui`. Architecture, measured parity and known gaps: [docs/RUNTIME.md](docs/RUNTIME.md); background research: [docs/RUNTIME_RESEARCH.md](docs/RUNTIME_RESEARCH.md). The material hierarchy to generate (56 materials, 5 families) is `catalog/taxonomy.json`.
+
 ## Package layout
 
 - `materials/geological/`: recipe source of truth and explicit licensing
@@ -49,6 +70,11 @@ The Blender route produces a procedural-stone component render and a `.blend` pr
 - `web/`: static material gallery and CSS component library
 - `tests/`: generator, seams, manifest and CLI tests
 - `docs/ROADMAP.md`: complete phase plan and acceptance criteria
+- `catalog/taxonomy.json`: material hierarchy to mass-generate
+- `shaders/`: the shared WGSL lighting shader
+- `crates/`: `elemental-pack` (pack reader) and `elemental-render` (native wgpu renderer + CLI)
+- `packages/web/`: `<elemental-surface>` web runtime
+- `integrations/`: Hyprland wallpaper and Tern plugin
 
 ## Principles
 

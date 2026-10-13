@@ -66,3 +66,32 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+
+  runtime-packs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build and verify runtime packs
+        run: |
+          python tools/elemental.py pack --size 128
+          python tools/elemental.py pack --verify
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Rust tests (pack contract, shader validation; GPU render skips without an adapter)
+        run: cargo test --release --locked
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install naga for the GLSL drift check
+        run: cargo install naga-cli --version 30.0.1 --locked
+      - name: Web runtime build
+        run: |
+          npm ci
+          npm run glsl:check -w @elemental-ui/web
+          npm run typecheck
+          npm run build
