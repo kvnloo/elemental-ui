@@ -3,7 +3,7 @@
   "license": "GPL-3.0-only",
   "asset_type": "AI-generated visual targets, NOT calibrated PBR maps",
   "source": "OpenAI image generation in conversation, 2026-10-12",
-  "note": "The image filenames are staged locally but binary images have not been uploaded to GitHub. The PBR atlases are illustrations, not independently valid aligned maps.",
+  "note": "Image files are staged locally, NOT uploaded to GitHub. AI-generated reference imagery is not physically measured PBR data. Extract maps from a common source.",
   "materials": [
     {
       "id": "geo.basalt.vesicular.v1",
@@ -42,6 +42,22 @@
         "ui_component": "Apply Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins to carved button and card with realistic bevels, shadows and clean serif typography. Reference lookdev only.",
         "variation_sweep": "Four variants of Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins; change grain, cleavage/pore density and weathering while maintaining geological identity.",
         "scan_match": "Side-by-side visual comparison of Dark blue-gray metamorphic slate, fissile overlapping sheets, fine cleavage, thin mineral veins, same scale and lighting; right is generated match, left is artistic reference. Not ground-truth scan."
+      }
+    },
+    {
+      "id": "geo.limestone.porous.v1",
+      "slug": "limestone",
+      "traits": "Warm cream and pale beige porous sedimentary limestone, calcite grains, irregular dissolved cavities and natural erosion",
+      "expected_images": [
+        "a_full_frame_ultra_detailed_close_up_texture_imag.png"
+      ],
+      "prompt_templates": {
+        "hero_macro": "One raw porous limestone surface texture, full-frame edge-to-edge, top-down orthographic macro, cream-beige calcite, irregular naturally distributed small dissolution pores and fine carbonate grains, neutral diffuse illumination, sharp across entire frame. No labels, panels, grid, borders, props, horizon, vignetting or text. A visual reference only, not calibrated PBR.",
+        "pbr_study": "Derive aligned basecolor, roughness, OpenGL tangent normal, and height from a single verified source, rather than requesting simulated maps from image generation.",
+        "material_ball": "Spherical geological test geometry using the same limestone source material, soft neutral studio lighting, photorealistic and physically plausible roughness.",
+        "ui_component": "Apply the same limestone source material to a simple raised carved button and inset card, keep UI labels live HTML, not baked into textures.",
+        "variation_sweep": "Generate four separate full-frame raw limestone textures differing in pore density and grain size; no collages or captions.",
+        "scan_match": "Compare the extracted limestone material under identical camera/light against a licensed photo or scan; record source provenance, scale and mismatch."
       }
     }
   ]
