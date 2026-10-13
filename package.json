@@ -1,0 +1,10 @@
+{
+  "name": "elemental-ui-workspace",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "typecheck": "npm run typecheck --workspaces"
+  }
+}

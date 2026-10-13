@@ -1,0 +1,24 @@
+{
+  "name": "@elemental-ui/web",
+  "version": "0.1.0",
+  "description": "Web runtime for elemental-ui material packs: <elemental-surface> with WebGPU, WebGL2 and CSS tiers",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "main": "./dist/elemental-ui.js",
+  "module": "./dist/elemental-ui.js",
+  "types": "./src/index.ts",
+  "exports": { ".": "./dist/elemental-ui.js" },
+  "files": ["dist", "src"],
+  "sideEffects": ["./dist/elemental-ui.js", "./src/element.ts", "./src/index.ts"],
+  "scripts": {
+    "glsl": "node scripts/build-glsl.mjs",
+    "glsl:check": "node scripts/build-glsl.mjs --check",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.60",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
+}
