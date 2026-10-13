@@ -29,7 +29,10 @@ import subprocess
 import threading
 import unittest
 
-from PIL import Image, ImageChops, ImageStat
+try:
+    from PIL import Image, ImageChops, ImageStat
+except ImportError as exc:  # keep `discover` usable where only the gallery harness is installed
+    raise unittest.SkipTest(f"Pillow is required for runtime QA: {exc}") from None
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]

@@ -51,10 +51,17 @@ jobs:
           python-version: '3.11'
       - name: Install pinned browser harness
         run: |
-          python -m pip install playwright==1.57.0
+          python -m pip install playwright==1.57.0 Pillow
           python -m playwright install --with-deps chromium
       - name: Generate three material texture packs
-        run: python tools/elemental.py generate --size 128 --out web/assets
+        run: |
+          python tools/elemental.py generate --size 128 --out web/assets
+          python tools/elemental.py pack --size 128
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build the web runtime (native parity tests skip without elemental-render)
+        run: npm ci && npm run build
       - name: Exercise semantic controls, keyboard, responsive layout, and reduced motion
         run: python -m unittest discover -s tests/browser -v
       - name: Upload mobile/desktop screenshots and size receipts
