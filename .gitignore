@@ -21,3 +21,6 @@ packages/*/dist/
 integrations/tern/elemental-ui/textures/
 integrations/tern/elemental-ui/elemental.css
 integrations/tern/elemental-ui/materials.luau
+# Crash dumps (e.g. a headless Chromium GPU process)
+core
+core.[0-9]*
