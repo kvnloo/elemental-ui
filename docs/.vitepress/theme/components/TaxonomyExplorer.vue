@@ -142,7 +142,7 @@ onMounted(async () => {
 							<img v-if="m.image" :src="withBase(m.image)" :alt="m.display_name" loading="lazy" decoding="async" />
 							<div v-else class="tx-placeholder" aria-hidden="true"><span>not generated yet</span></div>
 						</div>
-						<div class="tx-body">
+						<div class="tx-body el-glass">
 							<div class="tx-name">{{ m.display_name }}</div>
 							<code class="tx-id">{{ m.id }}</code>
 							<div class="tx-tags">
@@ -211,42 +211,38 @@ onMounted(async () => {
 .tx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 14px; }
 
 .tx-card {
-	display: flex; flex-direction: column; overflow: hidden; border-radius: 18px;
-	background: var(--vp-c-bg-elv); border: 1px solid rgb(15 15 15 / 0.12);
-	box-shadow: 0 6px 14px rgb(37 28 17 / 0.14); transition: transform 0.13s ease;
+	position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+	aspect-ratio: 4 / 5; padding: 8px; overflow: hidden; border-radius: 22px;
+	background: #2a2b2c; color: #fff;
+	box-shadow: 0 10px 24px rgb(37 28 17 / 0.22); transition: transform 0.16s ease;
 }
-.dark .tx-card { border-color: rgb(255 255 255 / 0.06); box-shadow: 0 6px 16px rgb(0 0 0 / 0.4); }
 .tx-card:hover { transform: translateY(-3px); }
-.tx-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #2a2b2c; }
-.tx-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.tx-media::after {
-	content: ""; position: absolute; inset: 0; pointer-events: none;
-	box-shadow: inset 1px 2px 0 rgb(255 255 255 / 0.16), inset -2px -3px 0 rgb(0 0 0 / 0.22);
-}
+.tx-media { position: absolute; inset: 0; }
+.tx-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.tx-card:hover .tx-media img { transform: scale(1.05); }
 .tx-placeholder {
-	position: absolute; inset: 0; display: grid; place-items: center;
+	position: absolute; inset: 0; display: grid; place-items: start center; padding-top: 22%;
 	background:
-		radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.16), transparent 60%),
-		linear-gradient(145deg, color-mix(in srgb, var(--hue) 70%, #ddd) , color-mix(in srgb, var(--hue) 60%, #111));
+		radial-gradient(circle at 30% 20%, rgb(255 255 255 / 0.22), transparent 55%),
+		linear-gradient(160deg, color-mix(in srgb, var(--hue) 75%, #eee), color-mix(in srgb, var(--hue) 55%, #0c0c0c));
 }
-.tx-placeholder span { font: 600 0.62rem var(--vp-font-family-base); letter-spacing: 0.2em; text-transform: uppercase; color: rgb(255 255 255 / 0.7); }
-.tx-body { padding: 12px 14px 14px; }
-.tx-name { font: 500 1.2rem/1.2 var(--el-serif); }
-.tx-id { font-size: 0.68rem; color: var(--vp-c-text-3); word-break: break-all; background: none !important; padding: 0 !important; }
-.tx-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+.tx-placeholder span { font: 600 0.6rem var(--vp-font-family-base); letter-spacing: 0.22em; text-transform: uppercase; color: rgb(255 255 255 / 0.75); }
+.tx-body { position: relative; border-radius: 16px; padding: 12px 14px 13px; }
+.tx-name { font: 500 1.22rem/1.15 var(--el-serif); }
+.tx-id { font-size: 0.66rem; color: rgb(255 255 255 / 0.75); word-break: break-all; background: none !important; padding: 0 !important; }
+.tx-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
 .tag {
-	font: 0.66rem var(--vp-font-family-mono); border-radius: 100px; padding: 2px 8px;
-	border: 1px solid rgb(80 62 40 / 0.3); color: var(--vp-c-text-2);
+	font: 0.62rem var(--vp-font-family-mono); border-radius: 100px; padding: 2px 8px;
+	color: #fff; background: rgb(255 255 255 / 0.12); border: 1px solid rgb(255 255 255 / 0.3);
+	text-shadow: none;
 }
-.dark .tag { border-color: rgb(255 255 255 / 0.16); }
-.tag[data-kind="bounded-object"] { border-color: #b99130; color: #8f6c12; }
-.tag[data-kind="animated-surface"] { border-color: #3f8fb0; color: #2f7898; }
-.tag[data-kind="volumetric-effect"] { border-color: #8a7fc0; color: #6f62a8; }
+.tag[data-kind="bounded-object"] { border-color: rgb(255 214 120 / 0.8); }
+.tag[data-kind="animated-surface"] { border-color: rgb(130 205 240 / 0.85); }
+.tag[data-kind="volumetric-effect"] { border-color: rgb(196 182 255 / 0.85); }
 .tag-roadmap { border-style: dashed; }
-.tag-ai { border-color: var(--vp-c-brand-2); color: var(--vp-c-brand-1); }
-.tag-recipe { border-color: #5f7d4a; color: #4d6a3a; }
-.dark .tag-recipe { color: #9cbc84; }
-.tag-live { background: #242627; border-color: #242627; color: #f3eee5; }
+.tag-ai { background: rgb(255 255 255 / 0.24); }
+.tag-recipe { border-color: rgb(170 220 140 / 0.85); }
+.tag-live { background: rgb(255 255 255 / 0.85); color: #1b1a18; border-color: transparent; }
 .tx-empty { color: var(--vp-c-text-2); }
 @media (prefers-reduced-motion: reduce) { .tx-card { transition: none; } }
 </style>

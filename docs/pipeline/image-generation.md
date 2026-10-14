@@ -25,9 +25,16 @@ visual check: full frame, no text, borders or props.
 
 - Originals, prompts and SHA-256s: `/mnt/zer0models/project-artifacts/elemental-ui/visual-targets-2026-10-14/`
   (`generate.py`, `manifest.json`, `contact_sheet.jpg`). These stay outside Git.
-- The docs use 1024 px WebP derivatives in `docs/public/materials/`, built by
-  `node docs/.vitepress/visual-targets.mjs`. `index.json` records each file's
-  hash, the original's hash and the prompt.
+- The docs show every image at its full original resolution (WebP q90). Seven
+  full-bleed surfaces also get a 3072 px AVIF made from a 4× RealESRGAN_x4plus
+  restoration (`upscale.py`, local GPU, about 8 s per image). Detail beyond the
+  original is inferred by the model, not captured, and `index.json` says so.
+  Built by `node docs/.vitepress/visual-targets.mjs`. `index.json` records
+  each file's hash, the original's hash and the prompt.
+- Native high resolution (up to 3840 px) needs the metered OpenAI API. The
+  `OPENAI_API_KEY` stored in bws is an expired session token
+  (`Provided authentication token is expired`), so `api_generate.py` has not
+  produced an image yet.
 
 ## Prompting rules
 

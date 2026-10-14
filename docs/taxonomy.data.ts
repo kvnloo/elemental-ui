@@ -19,6 +19,8 @@ export interface CatalogMaterial {
 	status: string | null;
 	/** Site path of the AI visual target, when one has been generated. */
 	image: string | null;
+	/** 3072 px restoration for full-bleed surfaces, when one exists. */
+	image_large: string | null;
 	prompt: string | null;
 }
 
@@ -65,6 +67,7 @@ export default {
 					recipe: known.has(m.id),
 					status: known.get(m.id) ?? null,
 					image: target ? `/materials/${target.file}` : null,
+					image_large: target?.large ? `/materials/${target.large.file}` : null,
 					prompt: target?.prompt ?? null,
 				};
 			}),
