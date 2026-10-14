@@ -126,13 +126,7 @@ export class ElementalSurface extends HTMLElement {
 		if (!material) return;
 		this.#renderer?.destroy();
 		this.#renderer = null;
-		this.#canvas.classList.remove("on");
-		// A canvas keeps the context type it was first given; swap in a fresh one.
-		const canvas = document.createElement("canvas");
-		canvas.setAttribute("part", "canvas");
-		canvas.setAttribute("aria-hidden", "true");
-		this.#canvas.replaceWith(canvas);
-		this.#canvas = canvas;
+		this.#freshCanvas();
 
 		try {
 			this.#pack = await loadPack(this.getAttribute("packs") ?? "/packs", material);
@@ -150,6 +144,9 @@ export class ElementalSurface extends HTMLElement {
 		if (wanted === "css" || (navigator as { connection?: { saveData?: boolean } }).connection?.saveData) return;
 		const order: ("webgpu" | "webgl2")[] = wanted === "webgl2" ? ["webgl2"] : wanted === "webgpu" ? ["webgpu"] : ["webgpu", "webgl2"];
 		for (const tier of order) {
+			// A failed WebGPU attempt still claims the canvas for "webgpu", so the
+			// WebGL2 fallback must start on a new one.
+			this.#freshCanvas();
 			try {
 				const renderer = tier === "webgpu"
 					? await createWebGPURenderer(this.#canvas, this.#pack)
@@ -168,6 +165,15 @@ export class ElementalSurface extends HTMLElement {
 				console.warn(`elemental-surface: ${tier} failed`, error);
 			}
 		}
+	}
+
+	// A canvas keeps the context type it was first given; swap in a fresh one.
+	#freshCanvas() {
+		const canvas = document.createElement("canvas");
+		canvas.setAttribute("part", "canvas");
+		canvas.setAttribute("aria-hidden", "true");
+		this.#canvas.replaceWith(canvas);
+		this.#canvas = canvas;
 	}
 
 	#setTier(tier: Tier, material: string, started: number) {

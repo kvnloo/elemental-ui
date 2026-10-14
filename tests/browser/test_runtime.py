@@ -142,6 +142,27 @@ class RuntimeTests(unittest.TestCase):
         self.results["css"] = {"mean": stat.mean[0], "stddev": stat.stddev[0]}
         self.assertGreater(stat.stddev[0], 3, "CSS tier is flat; texture did not load")
 
+    def test_auto_falls_back_to_webgl2_without_a_webgpu_adapter(self):
+        # navigator.gpu exists but has no adapter (common on Linux browsers). The failed
+        # WebGPU attempt has already claimed its canvas, so WebGL2 must get a fresh one.
+        page, errors = self.page()
+        page.add_init_script("if (navigator.gpu) navigator.gpu.requestAdapter = async () => null;")
+        page.goto(f"{self.base}/packages/web/demo/")
+        page.wait_for_function(
+            "[...document.querySelectorAll('elemental-surface')].length === 3 &&"
+            "[...document.querySelectorAll('elemental-surface')].every(e => e.dataset.tier)", timeout=20000)
+        if not page.evaluate("!!document.createElement('canvas').getContext('webgl2')"):
+            page.close()
+            self.skipTest("no WebGL2 in this browser")
+        try:
+            page.wait_for_function(
+                "[...document.querySelectorAll('elemental-surface')].every(e => e.dataset.tier === 'webgl2')", timeout=10000)
+        finally:
+            tiers = page.evaluate("[...document.querySelectorAll('elemental-surface')].map(e => e.dataset.tier)")
+            page.close()
+        self.assertEqual(tiers, ["webgl2"] * 3)
+        self.assertEqual(errors, [])
+
     def test_demo_surfaces_html_and_pointer_light(self):
         page, errors = self.page()
         # WebGL2 is the GPU tier that presents in headless Chromium (see module doc).
