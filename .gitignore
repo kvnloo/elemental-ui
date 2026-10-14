@@ -24,3 +24,6 @@ integrations/tern/elemental-ui/materials.luau
 # Crash dumps (e.g. a headless Chromium GPU process)
 core
 core.[0-9]*
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/public/live/

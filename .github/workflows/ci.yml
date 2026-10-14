@@ -102,3 +102,5 @@ jobs:
           npm run glsl:check -w @elemental-ui/web
           npm run typecheck
           npm run build
+      - name: Documentation site (VitePress, dead links fail the build)
+        run: npm run docs:build
