@@ -1,21 +1,207 @@
-/* elemental-ui docs theme: warm stone neutrals. GPL-3.0-only. */
+/* elemental-ui docs theme. Follows the library's own language (web/elemental.css,
+   web/styles.css): warm cream ground, charcoal stone panels, serif display type,
+   carved bevels with inset light, amber focus. GPL-3.0-only. */
+
 :root {
-	--vp-c-brand-1: #8a5a2b;
-	--vp-c-brand-2: #a06b37;
-	--vp-c-brand-3: #b98048;
-	--vp-c-brand-soft: rgb(160 107 55 / 0.14);
-	--vp-home-hero-name-color: transparent;
-	--vp-home-hero-name-background: linear-gradient(120deg, #6b5a49 10%, #a06b37 55%, #5f7d4a 95%);
-	--vp-home-hero-image-background-image: radial-gradient(circle, rgb(160 107 55 / 0.35), rgb(95 125 74 / 0.25) 60%, transparent 70%);
-	--vp-home-hero-image-filter: blur(48px);
+	--el-ink: #211e1a;
+	--el-ink-2: #4e463d;
+	--el-ink-3: #756c63;
+	--el-cream: #e5daca;
+	--el-cream-2: #efe6d8;
+	--el-cream-3: #d6c8b4;
+	--el-rock: #17191a;
+	--el-focus: #ffbd53;
+	--el-serif: "Newsreader Variable", Georgia, "Times New Roman", serif;
+	--el-bevel: inset 1px 2px 0 rgb(255 255 255 / 0.16), inset -2px -3px 0 rgb(0 0 0 / 0.3);
+	--el-lift: 0 5px 10px rgb(17 15 13 / 0.24), 0 15px 24px rgb(17 15 13 / 0.11);
+	--el-basalt: url("/materials/geo.basalt.vesicular.v1.webp");
+	--el-slate: url("/materials/geo.slate.layered.v1.webp");
+	--el-limestone: url("/materials/geo.limestone.porous.v1.webp");
+
+	--vp-c-bg: var(--el-cream);
+	--vp-c-bg-alt: #ddd0bd;
+	--vp-c-bg-elv: var(--el-cream-2);
+	--vp-c-bg-soft: var(--el-cream-3);
+	--vp-c-text-1: var(--el-ink);
+	--vp-c-text-2: var(--el-ink-2);
+	--vp-c-text-3: var(--el-ink-3);
+	--vp-c-divider: rgb(80 62 40 / 0.18);
+	--vp-c-gutter: rgb(80 62 40 / 0.12);
+	--vp-c-border: rgb(80 62 40 / 0.26);
+	--vp-c-brand-1: #7a5a30;
+	--vp-c-brand-2: #8a6d45;
+	--vp-c-brand-3: #6b4e28;
+	--vp-c-brand-soft: rgb(138 109 69 / 0.16);
+	--vp-c-default-soft: rgb(80 62 40 / 0.1);
+	--vp-code-bg: rgb(80 62 40 / 0.09);
+	--vp-code-color: #5a3f1d;
+	--vp-code-block-bg: #1d1f20;
+	--vp-code-block-color: #e9e2d8;
+	--vp-code-copy-code-bg: #2a2c2d;
+	--vp-nav-bg-color: var(--el-cream);
+	--vp-local-nav-bg-color: rgb(229 218 202 / 0.92);
+	--vp-sidebar-bg-color: var(--el-rock);
+	--vp-sidebar-width: 290px;
+	--vp-custom-block-tip-bg: rgb(95 125 74 / 0.12);
+	--vp-custom-block-info-bg: rgb(80 62 40 / 0.08);
+	--vp-custom-block-warning-bg: rgb(201 140 39 / 0.14);
 }
+
 .dark {
-	--vp-c-brand-1: #d9a066;
-	--vp-c-brand-2: #c98f55;
-	--vp-c-brand-3: #b98048;
-	--vp-c-brand-soft: rgb(217 160 102 / 0.16);
-	--vp-c-bg: #161412;
-	--vp-c-bg-alt: #1b1916;
-	--vp-c-bg-soft: #211e1a;
+	--vp-c-bg: #17191a;
+	--vp-c-bg-alt: #121314;
+	--vp-c-bg-elv: #202223;
+	--vp-c-bg-soft: #242627;
+	--vp-c-text-1: #f3eee5;
+	--vp-c-text-2: #c9bfb1;
+	--vp-c-text-3: #8f867a;
+	--vp-c-divider: rgb(233 226 216 / 0.12);
+	--vp-c-gutter: rgb(0 0 0 / 0.5);
+	--vp-c-border: rgb(233 226 216 / 0.2);
+	--vp-c-brand-1: #e0b77c;
+	--vp-c-brand-2: #d1a466;
+	--vp-c-brand-3: #b98c50;
+	--vp-c-brand-soft: rgb(224 183 124 / 0.14);
+	--vp-code-bg: rgb(233 226 216 / 0.08);
+	--vp-code-color: #e8c897;
+	--vp-code-block-bg: #101112;
+	--vp-nav-bg-color: #17191a;
+	--vp-local-nav-bg-color: rgb(23 25 26 / 0.92);
+	--vp-sidebar-bg-color: #0f1011;
 }
-.vp-doc table { font-size: 14px; }
+
+/* ---------- Type ---------- */
+.vp-doc h1, .vp-doc h2, .vp-doc h3, .el-display {
+	font-family: var(--el-serif);
+	font-weight: 450;
+	letter-spacing: -0.01em;
+}
+.vp-doc h1 { font-size: clamp(2.3rem, 4vw, 3.4rem); line-height: 1.05; margin-bottom: 0.4em; }
+.vp-doc h2 { font-size: 1.85rem; }
+.vp-doc h3 { font-size: 1.3rem; }
+.vp-doc p, .vp-doc li { line-height: 1.72; }
+.vp-doc a { text-underline-offset: 3px; }
+.el-eyebrow {
+	text-transform: uppercase;
+	font-size: 0.74rem;
+	letter-spacing: 0.22em;
+	font-weight: 600;
+	color: var(--vp-c-text-3);
+}
+
+/* ---------- Nav: tracked serif wordmark ---------- */
+.VPNavBarTitle .title {
+	font-family: var(--el-serif);
+	font-weight: 450;
+	font-size: 1.3rem;
+	letter-spacing: 0.2em;
+}
+.VPNavBarTitle .logo {
+	width: 26px; height: 26px; object-fit: cover; border-radius: 8px;
+	box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.2), 0 2px 5px rgb(0 0 0 / 0.35);
+}
+.vp-doc h1 code, .vp-doc h2 code { background: none; padding: 0; font-size: 0.8em; color: var(--vp-c-brand-1); }
+.VPNavBar .divider-line { display: none; }
+
+/* ---------- Sidebar: a slab of basalt, like the gallery's stone rail ---------- */
+.VPSidebar {
+	background:
+		radial-gradient(circle at 25% 12%, rgb(66 69 69 / 0.55), rgb(14 15 16 / 0.93) 70%),
+		var(--el-basalt) center / 640px auto,
+		var(--el-rock) !important;
+	box-shadow: inset -5px 0 10px rgb(0 0 0 / 0.25);
+	--vp-c-text-1: #f3eee5;
+	--vp-c-text-2: #cdc4b7;
+	--vp-c-text-3: #9b9285;
+	--vp-c-divider: rgb(233 226 216 / 0.12);
+	--vp-c-brand-1: #f0c98f;
+}
+.VPSidebarItem.level-0 > .item .text {
+	text-transform: uppercase;
+	font-size: 0.72rem;
+	letter-spacing: 0.2em;
+	color: #a49a8c;
+}
+.VPSidebarItem .link { border-radius: 10px; padding-inline: 10px; margin-inline: -10px; border: 1px solid transparent; }
+.VPSidebarItem .link:hover { background: rgb(255 255 255 / 0.08); }
+.VPSidebarItem.is-active > .item .link {
+	background: rgb(255 255 255 / 0.11);
+	border-color: rgb(255 255 255 / 0.13);
+	box-shadow: inset 1px 1px 0 rgb(255 255 255 / 0.08);
+}
+.VPSidebarItem.is-active > .item .indicator { display: none; }
+@media (min-width: 960px) {
+	/* The nav title above the sidebar sits on the same stone slab. */
+	.VPNavBar.has-sidebar .title {
+		background:
+			radial-gradient(circle at 25% 60%, rgb(66 69 69 / 0.5), rgb(14 15 16 / 0.93) 75%),
+			var(--el-basalt) center / 640px auto, var(--el-rock);
+		color: #f3eee5;
+	}
+	.VPNavBar.has-sidebar .VPNavBarTitle .title { color: #f3eee5; }
+}
+
+/* ---------- Carved surfaces ---------- */
+.el-stone {
+	position: relative;
+	color: #f8eee0;
+	background-color: #282829;
+	background-image:
+		linear-gradient(145deg, rgb(255 255 255 / 0.1), transparent 43%, rgb(0 0 0 / 0.32)),
+		linear-gradient(rgb(14 14 15 / var(--el-veil, 0.58)), rgb(14 14 15 / var(--el-veil, 0.58))),
+		var(--el-tex, var(--el-basalt));
+	background-size: cover;
+	background-position: center;
+	border: 1px solid rgb(10 10 10 / 0.25);
+	box-shadow: var(--el-bevel), var(--el-lift);
+}
+.el-stone.is-slate { --el-tex: var(--el-slate); }
+.el-stone.is-limestone { --el-tex: var(--el-limestone); --el-veil: 0; color: #241a17; background-color: #c4b198; }
+.el-stone :is(h1, h2, h3, p) { text-shadow: 0 1px 2px rgb(0 0 0 / 0.5); }
+
+/* Carved stone buttons (.el-button), used by the home page and doc CTAs */
+.el-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	min-height: 52px;
+	padding: 0 26px;
+	border-radius: 15px;
+	font: 500 1.15rem/1 var(--el-serif);
+	text-decoration: none !important;
+	transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+}
+.el-btn.brand {
+	color: #f8eee0 !important;
+	border: 1px solid rgb(10 10 10 / 0.35);
+	background: linear-gradient(145deg, rgb(255 255 255 / 0.14), transparent 43%, rgb(0 0 0 / 0.34)), linear-gradient(rgb(20 20 21 / 0.62), rgb(20 20 21 / 0.62)), var(--el-basalt) center / 420px auto, #282829;
+	text-shadow: 0 1px 2px rgb(0 0 0 / 0.6);
+	box-shadow: var(--el-bevel), var(--el-lift);
+}
+.el-btn.alt {
+	color: #241a17 !important;
+	border: 1px solid rgb(60 40 20 / 0.25);
+	background: linear-gradient(145deg, rgb(255 255 255 / 0.3), transparent 45%, rgb(60 40 20 / 0.2)), var(--el-limestone) center / 420px auto, #c4b198;
+	box-shadow: inset 1px 2px 0 rgb(255 255 255 / 0.4), inset -2px -3px 0 rgb(60 40 20 / 0.2), var(--el-lift);
+}
+.el-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.el-btn:active {
+	transform: translateY(2px);
+	filter: brightness(0.94);
+	box-shadow: inset 0 7px 13px rgb(0 0 0 / 0.42), inset 0 0 0 3px rgb(12 10 9 / 0.32);
+}
+
+:focus-visible { outline: 3px solid var(--el-focus); outline-offset: 3px; }
+
+/* ---------- Doc content details ---------- */
+.vp-doc table { font-size: 0.92rem; }
+.vp-doc th { background: rgb(80 62 40 / 0.07); font-weight: 600; }
+.dark .vp-doc th { background: rgb(255 255 255 / 0.04); }
+.vp-doc tr:nth-child(2n) { background: transparent; }
+.vp-doc div[class*="language-"] { border-radius: 14px; box-shadow: inset 1px 1px 0 rgb(255 255 255 / 0.06), 0 6px 16px rgb(17 15 13 / 0.16); }
+.vp-doc .custom-block { border-radius: 14px; border: 1px solid var(--vp-c-divider); }
+.VPDocFooter .pager-link { border-radius: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+	.el-btn { transition: none; transform: none !important; }
+}

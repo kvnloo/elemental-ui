@@ -14,10 +14,10 @@ export default defineConfig({
 		["meta", { name: "theme-color", content: "#2a2622" }],
 		["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
 	],
-	markdown: { theme: { light: "github-light", dark: "github-dark" } },
+	markdown: { theme: { light: "vitesse-dark", dark: "vitesse-dark" } },
 	vue: { template: { compilerOptions: { isCustomElement: (tag) => tag === "elemental-surface" } } },
 	themeConfig: {
-		logo: { light: "/mark.svg", dark: "/mark.svg", alt: "" },
+		logo: { src: "/materials/geo.basalt.vesicular.v1.webp", alt: "" },
 		nav: [
 			{ text: "Guide", link: "/guide/getting-started" },
 			{ text: "Taxonomy", link: "/taxonomy/" },

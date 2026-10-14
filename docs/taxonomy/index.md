@@ -12,9 +12,12 @@ All 48 materials from the four reference atlases (codes like `GEO-01`) are
 included. The 8 entries marked *roadmap* come from the roadmap's priority
 matrix.
 
-Materials that already have a runtime pack show a **live swatch**: move the
-pointer over it to move the light. The others show their family color until
-the generation pipeline produces them.
+Images are **visual targets**: one hero macro per material, generated with
+gpt-image-2 to set the look ([how](/pipeline/image-generation)). They are
+references, not calibrated PBR maps. The texture maps are derived from a
+single source in Blender. Hover the *visual target* tag to see the prompt.
+Materials tagged *live pack* already have a runtime pack; see them relit on
+the [web component](/runtime/web) page.
 
 <TaxonomyExplorer />
 

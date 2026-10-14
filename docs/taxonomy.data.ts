@@ -17,6 +17,9 @@ export interface CatalogMaterial {
 	recipe: boolean;
 	/** Recipe status, when there is one. */
 	status: string | null;
+	/** Site path of the AI visual target, when one has been generated. */
+	image: string | null;
+	prompt: string | null;
 }
 
 export interface Catalog {
@@ -26,6 +29,7 @@ export interface Catalog {
 	kinds: string[];
 	render_roles: string[];
 	materials: CatalogMaterial[];
+	visual_targets: { asset_type: string; source: string } | null;
 }
 
 declare const data: Catalog;
@@ -45,17 +49,25 @@ function recipes(dir: string): Map<string, string> {
 }
 
 export default {
-	watch: ["../catalog/taxonomy.json", "../materials/**/*.json"],
+	watch: ["../catalog/taxonomy.json", "../materials/**/*.json", "./public/materials/index.json"],
 	load(): Catalog {
 		const doc = JSON.parse(readFileSync(join(root, "catalog/taxonomy.json"), "utf8"));
 		const known = existsSync(join(root, "materials")) ? recipes(join(root, "materials")) : new Map();
+		const targetsPath = join(root, "docs/public/materials/index.json");
+		const targets = existsSync(targetsPath) ? JSON.parse(readFileSync(targetsPath, "utf8")) : null;
 		return {
 			...doc,
-			materials: doc.materials.map((m: CatalogMaterial) => ({
-				...m,
-				recipe: known.has(m.id),
-				status: known.get(m.id) ?? null,
-			})),
+			visual_targets: targets && { asset_type: targets.asset_type, source: targets.source },
+			materials: doc.materials.map((m: CatalogMaterial) => {
+				const target = targets?.images[m.id];
+				return {
+					...m,
+					recipe: known.has(m.id),
+					status: known.get(m.id) ?? null,
+					image: target ? `/materials/${target.file}` : null,
+					prompt: target?.prompt ?? null,
+				};
+			}),
 		};
 	},
 };

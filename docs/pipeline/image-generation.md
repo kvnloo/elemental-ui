@@ -15,6 +15,20 @@ derived from one source in Blender.
 Raw probes and findings:
 `/mnt/zer0models/project-artifacts/elemental-ui/smoke-2026-10-13/` (local).
 
+## First batch (2026-10-14)
+
+18 `hero_macro` visual targets covering all five families, generated on the
+subscription route (gpt-image-2, three requests at a time). 17 came back
+1536×1024 and obsidian came back 1370×1148. Each took 23–41 s. One request
+failed with `server_is_overloaded` and succeeded on retry. All 18 passed a
+visual check: full frame, no text, borders or props.
+
+- Originals, prompts and SHA-256s: `/mnt/zer0models/project-artifacts/elemental-ui/visual-targets-2026-10-14/`
+  (`generate.py`, `manifest.json`, `contact_sheet.jpg`). These stay outside Git.
+- The docs use 1024 px WebP derivatives in `docs/public/materials/`, built by
+  `node docs/.vitepress/visual-targets.mjs`. `index.json` records each file's
+  hash, the original's hash and the prompt.
+
 ## Prompting rules
 
 - Only `hero_macro` feeds the texture maps: one raw, full-frame, top-down

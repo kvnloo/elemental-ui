@@ -12,6 +12,30 @@ DOM.
 </elemental-surface>
 ```
 
+<script setup>
+import { onMounted } from "vue";
+import { withBase } from "vitepress";
+onMounted(() => import(/* @vite-ignore */ withBase("/live/elemental-ui.js")).catch(() => {}));
+</script>
+
+## Live
+
+These are the three **draft procedural packs** relit by the shared shader in
+your browser. Move the pointer across them. The AI-derived packs will replace
+them once the Blender stage exists.
+
+<div class="live-demo">
+  <elemental-surface v-for="m in ['geo.basalt.vesicular.v1', 'geo.slate.layered.v1', 'geo.limestone.porous.v1']" :key="m" :material.attr="m" :packs.attr="withBase('/live/packs')" light="pointer" tile="192" class="live-card">
+    <span class="live-label">{{ m }}</span>
+  </elemental-surface>
+</div>
+
+<style>
+.live-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 18px 0 8px; }
+.live-card { min-height: 190px; border-radius: 18px; overflow: hidden; box-shadow: inset 1px 2px 0 rgb(255 255 255 / 0.16), 0 6px 14px rgb(37 28 17 / 0.2); }
+.live-label { position: absolute; left: 12px; bottom: 10px; font: 0.7rem var(--vp-font-family-mono); color: #f3eee5; text-shadow: 0 1px 2px #000; }
+</style>
+
 ## Attributes
 
 | Attribute | Default | Meaning |

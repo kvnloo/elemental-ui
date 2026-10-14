@@ -65,6 +65,7 @@ const stats = computed(() => {
 		total: data.materials.length,
 		atlas: data.materials.filter((m) => m.atlas_code).length,
 		recipes: data.materials.filter((m) => m.recipe).length,
+		imaged: data.materials.filter((m) => m.image).length,
 		classes: new Set(data.materials.map((m) => `${m.family}/${m.class}`)).size,
 		family: by("family"),
 		kind: by("kind"),
@@ -96,8 +97,8 @@ onMounted(async () => {
 			<div class="tx-stat"><b>{{ Object.keys(stats.family).length }}</b><span>families</span></div>
 			<div class="tx-stat"><b>{{ stats.classes }}</b><span>classes</span></div>
 			<div class="tx-stat"><b>{{ stats.atlas }}</b><span>from the reference atlases</span></div>
+			<div class="tx-stat"><b>{{ stats.imaged }}</b><span>visual targets generated</span></div>
 			<div class="tx-stat"><b>{{ stats.recipes }}</b><span>with a recipe today</span></div>
-			<div class="tx-stat"><b>{{ live.size }}</b><span>live packs on this page</span></div>
 		</div>
 
 		<div class="tx-tree" aria-label="Hierarchy overview">
@@ -114,16 +115,16 @@ onMounted(async () => {
 
 		<div class="tx-controls">
 			<input v-model="query" class="tx-search" type="search" placeholder="Search names, ids, classes, atlas codes…" aria-label="Search materials" />
-			<div class="tx-chips" role="group" aria-label="Families">
+			<div class="tx-chips el-seg" role="group" aria-label="Families">
 				<button v-for="(meta, family) in FAMILY" :key="family" type="button" class="chip" :style="{ '--hue': meta.hue }"
 					:aria-pressed="families.has(family)" @click="toggleFamily(family)">{{ meta.label }}</button>
 			</div>
-			<div class="tx-chips" role="group" aria-label="Kinds">
+			<div class="tx-chips el-seg" role="group" aria-label="Kinds">
 				<button v-for="(label, kind) in KIND" :key="kind" type="button" class="chip" :aria-pressed="kinds.has(kind)" @click="toggleKind(kind)">
 					{{ label }} <small>{{ stats.kind[kind] ?? 0 }}</small>
 				</button>
 			</div>
-			<div class="tx-chips" role="radiogroup" aria-label="Origin">
+			<div class="tx-chips el-seg" role="radiogroup" aria-label="Origin">
 				<button v-for="o in (['all', 'atlas', 'roadmap'] as const)" :key="o" type="button" class="chip" role="radio" :aria-checked="origin === o" :aria-pressed="origin === o" @click="origin = o">
 					{{ o === 'all' ? 'Any origin' : o === 'atlas' ? 'In the atlases' : 'Roadmap only' }}
 				</button>
@@ -136,16 +137,19 @@ onMounted(async () => {
 			<div v-for="c in group.classes" :key="c.name" class="tx-class">
 				<h3>{{ pretty(c.name) }}</h3>
 				<div class="tx-grid">
-					<article v-for="m in c.items" :key="m.id" class="tx-card">
-						<elemental-surface v-if="live.has(m.id)" class="tx-swatch" :material.attr="m.id" :packs.attr="withBase('/live/packs')" light="pointer" tile="128" :tier.attr="live_tier" />
-						<div v-else class="tx-swatch tx-placeholder" aria-hidden="true" />
+					<article v-for="m in c.items" :key="m.id" class="tx-card" :class="{ 'has-image': m.image }">
+						<div class="tx-media">
+							<img v-if="m.image" :src="withBase(m.image)" :alt="m.display_name" loading="lazy" decoding="async" />
+							<div v-else class="tx-placeholder" aria-hidden="true"><span>not generated yet</span></div>
+						</div>
 						<div class="tx-body">
 							<div class="tx-name">{{ m.display_name }}</div>
 							<code class="tx-id">{{ m.id }}</code>
 							<div class="tx-tags">
 								<span class="tag" :data-kind="m.kind">{{ KIND[m.kind] }}</span>
-								<span v-if="m.atlas_code" class="tag tag-atlas">{{ m.atlas_code }}</span>
+								<span v-if="m.atlas_code" class="tag">{{ m.atlas_code }}</span>
 								<span v-else class="tag tag-roadmap">roadmap</span>
+								<span v-if="m.image" class="tag tag-ai" :title="m.prompt ?? ''">visual target</span>
 								<span v-if="m.recipe" class="tag tag-recipe">recipe · {{ m.status }}</span>
 								<span v-if="live.has(m.id)" class="tag tag-live">live pack</span>
 							</div>
@@ -159,54 +163,90 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.tx { margin-top: 24px; }
-.tx-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 24px; }
-.tx-stat { border: 1px solid var(--vp-c-divider); border-radius: 12px; padding: 12px 14px; background: var(--vp-c-bg-soft); }
-.tx-stat b { display: block; font-size: 26px; line-height: 1.1; font-family: var(--vp-font-family-mono); }
-.tx-stat span { font-size: 12px; color: var(--vp-c-text-2); }
-
-.tx-tree { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 28px; }
-.tx-tree-family { border-left: 3px solid var(--hue); padding: 4px 0 4px 12px; }
-.tx-tree-head { font-weight: 600; display: flex; align-items: center; gap: 6px; }
-.tx-tree-head small, .tx-tree li small { color: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); margin-left: auto; }
-.tx-tree ul { list-style: none; padding: 0; margin: 6px 0 0; }
-.tx-tree li { display: flex; gap: 8px; font-size: 13px; color: var(--vp-c-text-2); text-transform: capitalize; margin: 2px 0; }
-.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--hue); display: inline-block; }
-
-.tx-controls { position: sticky; top: calc(var(--vp-nav-height) + 4px); z-index: 5; background: var(--vp-c-bg); padding: 10px 0; border-bottom: 1px solid var(--vp-c-divider); margin-bottom: 8px; }
-.tx-search { width: 100%; padding: 9px 12px; border: 1px solid var(--vp-c-divider); border-radius: 10px; background: var(--vp-c-bg-soft); font-size: 14px; }
-.tx-search:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 1px; }
-.tx-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.chip { border: 1px solid var(--vp-c-divider); border-radius: 999px; padding: 3px 11px; font-size: 12.5px; color: var(--vp-c-text-2); background: transparent; cursor: pointer; }
-.chip small { color: var(--vp-c-text-3); }
-.chip[aria-pressed="true"] { background: var(--hue, var(--vp-c-brand-1)); border-color: var(--hue, var(--vp-c-brand-1)); color: #fff; }
-.chip[aria-pressed="true"] small { color: rgb(255 255 255 / 0.8); }
-.chip:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 2px; }
-.tx-count { font-size: 12px; color: var(--vp-c-text-3); margin: 8px 0 0; }
-
-.tx-family h2 { border-top: none; margin-top: 36px; padding-top: 0; display: flex; align-items: baseline; gap: 10px; }
-.tx-family h2::before { content: ""; width: 12px; height: 12px; border-radius: 3px; background: var(--hue); align-self: center; }
-.tx-family h2 small { font-size: 13px; font-weight: 400; color: var(--vp-c-text-2); }
-.tx-class h3 { text-transform: capitalize; font-size: 15px; color: var(--vp-c-text-2); margin: 18px 0 10px; }
-.tx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.tx-card { border: 1px solid var(--vp-c-divider); border-radius: 14px; overflow: hidden; background: var(--vp-c-bg-soft); display: flex; flex-direction: column; }
-.tx-swatch { display: block; height: 92px; }
-.tx-placeholder {
-	background:
-		radial-gradient(circle at 30% 30%, rgb(255 255 255 / 0.18), transparent 55%),
-		repeating-linear-gradient(135deg, rgb(0 0 0 / 0.06) 0 6px, transparent 6px 12px),
-		var(--hue);
+.tx { margin-top: 28px; }
+.tx-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 28px; }
+.tx-stat {
+	border-radius: 16px; padding: 14px 16px;
+	background: rgb(80 62 40 / 0.07);
+	box-shadow: inset 2px 3px 7px rgb(40 30 20 / 0.14), inset -1px -2px 2px rgb(255 255 255 / 0.4);
 }
-.tx-body { padding: 10px 12px 12px; }
-.tx-name { font-weight: 600; }
-.tx-id { font-size: 11px; color: var(--vp-c-text-2); word-break: break-all; background: none; padding: 0; }
-.tx-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-.tag { font-size: 10.5px; border-radius: 6px; padding: 1px 6px; border: 1px solid var(--vp-c-divider); color: var(--vp-c-text-2); font-family: var(--vp-font-family-mono); }
-.tag[data-kind="bounded-object"] { border-color: #c9a227; color: #9a7a10; }
+.dark .tx-stat { background: rgb(0 0 0 / 0.25); box-shadow: inset 2px 3px 7px rgb(0 0 0 / 0.5), inset -1px -1px 1px rgb(255 255 255 / 0.05); }
+.tx-stat b { display: block; font: 450 2.1rem/1 var(--el-serif); }
+.tx-stat span { font-size: 0.78rem; color: var(--vp-c-text-2); }
+
+.tx-tree { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 30px; }
+.tx-tree-family { border-left: 2px solid var(--hue); padding: 2px 0 2px 14px; }
+.tx-tree-head { font: 500 1.15rem var(--el-serif); display: flex; align-items: center; gap: 8px; }
+.tx-tree-head small, .tx-tree li small { color: var(--vp-c-text-3); font: 0.75rem var(--vp-font-family-mono); margin-left: auto; }
+.tx-tree ul { list-style: none; padding: 0; margin: 6px 0 0; }
+.tx-tree li { display: flex; gap: 8px; font-size: 0.84rem; color: var(--vp-c-text-2); text-transform: capitalize; margin: 3px 0; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--hue); display: inline-block; }
+
+.tx-controls { padding: 0 0 6px; margin-bottom: 6px; border-bottom: 1px solid var(--vp-c-divider); }
+.tx-search {
+	width: 100%; min-height: 46px; padding: 0 16px; border-radius: 14px;
+	border: 1px solid rgb(80 62 40 / 0.3); background: var(--vp-c-bg-elv);
+	box-shadow: inset 1px 3px 4px rgb(40 30 20 / 0.11); font-size: 0.95rem;
+}
+.tx-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; margin: 10px 8px 0 0; }
+.el-seg { padding: 5px; border-radius: 16px; background: rgb(80 62 40 / 0.09); box-shadow: inset 2px 4px 7px rgb(40 30 20 / 0.14); }
+.dark .el-seg { background: rgb(0 0 0 / 0.3); box-shadow: inset 2px 4px 7px rgb(0 0 0 / 0.5); }
+.chip {
+	border: 0; border-radius: 11px; padding: 7px 13px; min-height: 34px;
+	font: 500 0.95rem var(--el-serif); color: var(--vp-c-text-2); background: transparent; cursor: pointer;
+}
+.chip small { font: 0.72rem var(--vp-font-family-mono); color: var(--vp-c-text-3); }
+.chip:hover { color: var(--vp-c-text-1); }
+.chip[aria-pressed="true"] {
+	color: #f3eee5; background: #242627;
+	box-shadow: inset 1px 2px 4px rgb(0 0 0 / 0.6), 0 1px 1px rgb(255 255 255 / 0.3);
+}
+.chip[aria-pressed="true"] small { color: rgb(243 238 229 / 0.7); }
+.tx-count { font-size: 0.78rem; color: var(--vp-c-text-3); margin: 10px 0 0; letter-spacing: 0.04em; }
+
+.tx-family h2 { border-top: none; margin-top: 44px; padding-top: 0; display: flex; align-items: baseline; gap: 12px; font-size: 2rem; }
+.tx-family h2::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--hue); align-self: center; }
+.tx-family h2 small { font: 400 0.85rem var(--vp-font-family-base); color: var(--vp-c-text-2); }
+.tx-class h3 { text-transform: uppercase; font: 600 0.72rem var(--vp-font-family-base); letter-spacing: 0.2em; color: var(--vp-c-text-3); margin: 22px 0 12px; }
+.tx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 14px; }
+
+.tx-card {
+	display: flex; flex-direction: column; overflow: hidden; border-radius: 18px;
+	background: var(--vp-c-bg-elv); border: 1px solid rgb(15 15 15 / 0.12);
+	box-shadow: 0 6px 14px rgb(37 28 17 / 0.14); transition: transform 0.13s ease;
+}
+.dark .tx-card { border-color: rgb(255 255 255 / 0.06); box-shadow: 0 6px 16px rgb(0 0 0 / 0.4); }
+.tx-card:hover { transform: translateY(-3px); }
+.tx-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #2a2b2c; }
+.tx-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.tx-media::after {
+	content: ""; position: absolute; inset: 0; pointer-events: none;
+	box-shadow: inset 1px 2px 0 rgb(255 255 255 / 0.16), inset -2px -3px 0 rgb(0 0 0 / 0.22);
+}
+.tx-placeholder {
+	position: absolute; inset: 0; display: grid; place-items: center;
+	background:
+		radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.16), transparent 60%),
+		linear-gradient(145deg, color-mix(in srgb, var(--hue) 70%, #ddd) , color-mix(in srgb, var(--hue) 60%, #111));
+}
+.tx-placeholder span { font: 600 0.62rem var(--vp-font-family-base); letter-spacing: 0.2em; text-transform: uppercase; color: rgb(255 255 255 / 0.7); }
+.tx-body { padding: 12px 14px 14px; }
+.tx-name { font: 500 1.2rem/1.2 var(--el-serif); }
+.tx-id { font-size: 0.68rem; color: var(--vp-c-text-3); word-break: break-all; background: none !important; padding: 0 !important; }
+.tx-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+.tag {
+	font: 0.66rem var(--vp-font-family-mono); border-radius: 100px; padding: 2px 8px;
+	border: 1px solid rgb(80 62 40 / 0.3); color: var(--vp-c-text-2);
+}
+.dark .tag { border-color: rgb(255 255 255 / 0.16); }
+.tag[data-kind="bounded-object"] { border-color: #b99130; color: #8f6c12; }
 .tag[data-kind="animated-surface"] { border-color: #3f8fb0; color: #2f7898; }
 .tag[data-kind="volumetric-effect"] { border-color: #8a7fc0; color: #6f62a8; }
 .tag-roadmap { border-style: dashed; }
-.tag-recipe { border-color: var(--vp-c-green-2); color: var(--vp-c-green-1); }
-.tag-live { background: var(--vp-c-brand-soft); border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
+.tag-ai { border-color: var(--vp-c-brand-2); color: var(--vp-c-brand-1); }
+.tag-recipe { border-color: #5f7d4a; color: #4d6a3a; }
+.dark .tag-recipe { color: #9cbc84; }
+.tag-live { background: #242627; border-color: #242627; color: #f3eee5; }
 .tx-empty { color: var(--vp-c-text-2); }
+@media (prefers-reduced-motion: reduce) { .tx-card { transition: none; } }
 </style>
