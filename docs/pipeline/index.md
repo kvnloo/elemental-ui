@@ -20,7 +20,7 @@ materials/<family>/*.json ─► tools/elemental.py pack ─► packs/<id>/  (el
 
 | Stage | Status | Page |
 |---|---|---|
-| Taxonomy of what to generate | **done**, 56 materials, awaiting owner sign-off | [Taxonomy](/taxonomy/) |
+| Taxonomy of what to generate | **done**, 353 materials (48 atlas + 8 roadmap + 297 expansion), awaiting owner sign-off | [Taxonomy](/taxonomy/) |
 | Recipes (seed, scale, parameters) | 3 geological recipes | [Recipes](/pipeline/recipes) |
 | Visual targets from image generation | smoke-tested, about 1.6 MP per image on the subscription | [Image generation](/pipeline/image-generation) |
 | Seamless + Blender map derivation | **next** | [Blender PBR smoke](/PBR_BLENDER) |

@@ -6,11 +6,11 @@ import { withBase } from "vitepress";
 import { data } from "../../../taxonomy.data";
 
 const FAMILY: Record<string, { label: string; hue: string; blurb: string }> = {
-	geological: { label: "Geological", hue: "#8a7a68", blurb: "Stone, crystal and loose earth" },
-	botanical: { label: "Botanical", hue: "#5f7d4a", blurb: "Foliage, bark, moss, wood and seeds" },
+	geological: { label: "Geological", hue: "#8a7a68", blurb: "Rock, minerals, lapidary stone, loose earth and weathering" },
+	botanical: { label: "Botanical", hue: "#5f7d4a", blurb: "Foliage, bark, moss, fungi, timber, fibers and seeds" },
 	aquatic: { label: "Aquatic", hue: "#3f7891", blurb: "Water surfaces, shorelines and haze" },
-	atmospheric: { label: "Atmospheric", hue: "#7f8fa8", blurb: "Ice, veils and low-light glow" },
-	fauna: { label: "Fauna", hue: "#9a6a4f", blurb: "Scales, plumage, iridescence and shell" },
+	atmospheric: { label: "Atmospheric", hue: "#7f8fa8", blurb: "Ice, condensation, veils, sky, glow and fire" },
+	fauna: { label: "Fauna", hue: "#9a6a4f", blurb: "Scales, plumage, iridescence, shell, pattern and biogenic structures" },
 };
 const KIND: Record<string, string> = {
 	"tileable-surface": "Tileable surface",
@@ -22,7 +22,7 @@ const KIND: Record<string, string> = {
 const query = ref("");
 const families = ref<Set<string>>(new Set());
 const kinds = ref<Set<string>>(new Set());
-const origin = ref<"all" | "atlas" | "roadmap">("all");
+const origin = ref<"all" | "atlas" | "roadmap" | "expansion">("all");
 const live = ref<Set<string>>(new Set());
 
 const live_tier = ref("auto");
@@ -41,7 +41,8 @@ const filtered = computed(() => {
 		if (families.value.size && !families.value.has(m.family)) return false;
 		if (kinds.value.size && !kinds.value.has(m.kind)) return false;
 		if (origin.value === "atlas" && !m.atlas_code) return false;
-		if (origin.value === "roadmap" && m.atlas_code) return false;
+		if (origin.value === "roadmap" && m.origin !== "roadmap") return false;
+		if (origin.value === "expansion" && !m.origin.startsWith("expansion")) return false;
 		if (!q) return true;
 		return [m.display_name, m.id, m.class, m.atlas_code ?? "", m.family].some((s) => s.toLowerCase().includes(q));
 	});
@@ -125,8 +126,8 @@ onMounted(async () => {
 				</button>
 			</div>
 			<div class="tx-chips el-seg" role="radiogroup" aria-label="Origin">
-				<button v-for="o in (['all', 'atlas', 'roadmap'] as const)" :key="o" type="button" class="chip" role="radio" :aria-checked="origin === o" :aria-pressed="origin === o" @click="origin = o">
-					{{ o === 'all' ? 'Any origin' : o === 'atlas' ? 'In the atlases' : 'Roadmap only' }}
+				<button v-for="o in (['all', 'atlas', 'roadmap', 'expansion'] as const)" :key="o" type="button" class="chip" role="radio" :aria-checked="origin === o" :aria-pressed="origin === o" @click="origin = o">
+					{{ { all: 'Any origin', atlas: 'In the atlases', roadmap: 'Roadmap', expansion: 'Expansion' }[o] }}
 				</button>
 			</div>
 			<p class="tx-count">{{ filtered.length }} of {{ stats.total }} shown</p>

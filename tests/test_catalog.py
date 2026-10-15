@@ -37,6 +37,11 @@ class TaxonomyTests(unittest.TestCase):
             self.assertIn(m["kind"], KINDS, m["id"])
             self.assertTrue(m["family"] and m["class"], m["id"])
 
+    def test_id_prefix_matches_family(self):
+        prefix = {"geological": "geo", "botanical": "bot", "aquatic": "aq", "atmospheric": "atm", "fauna": "fauna"}
+        for m in self.materials:
+            self.assertTrue(m["id"].startswith(prefix[m["family"]] + "."), m["id"])
+
     def test_every_recipe_is_in_the_catalog(self):
         catalog = {m["id"] for m in self.materials}
         for recipe in elemental.all_recipes():

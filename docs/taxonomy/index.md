@@ -8,9 +8,14 @@ outline: false
 Everything elemental-ui plans to mass-generate, as **family › class ›
 material**. The source of truth is
 [`catalog/taxonomy.json`](https://github.com/kvnloo/elemental-ui/blob/main/catalog/taxonomy.json).
-All 48 materials from the four reference atlases (codes like `GEO-01`) are
-included. The 8 entries marked *roadmap* come from the roadmap's priority
-matrix.
+It holds 353 distinct materials:
+- **48 atlas materials:** everything on the four reference atlas posters (codes like `GEO-01`).
+- **8 roadmap materials:** from the roadmap's priority matrix.
+- **297 expansion materials:** added to make this a list worth mass-generating, covering real rock
+  types, minerals, timbers, bark, fungi, shells, plumage, sky and fire.
+
+Finish variants (rough, cut, polished, wet, weathered) and seeds multiply each
+material further when generated.
 
 Images are **visual targets**: one hero macro per material, generated with
 gpt-image-2 to set the look ([how](/pipeline/image-generation)). They are

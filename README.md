@@ -59,7 +59,7 @@ python3 -m http.server 8080                      # open /packages/web/demo/
 </elemental-surface>
 ```
 
-The element picks WebGPU, then WebGL2 (GLSL generated from the same WGSL by naga), then a CSS tile. It draws only when something changes. Desktop: `integrations/hyprland/elemental-wallpaper` renders per-monitor wallpapers. Tern: `integrations/tern/elemental-ui`. Architecture, measured parity and known gaps: [docs/RUNTIME.md](docs/RUNTIME.md); background research: [docs/RUNTIME_RESEARCH.md](docs/RUNTIME_RESEARCH.md). The material hierarchy to generate (56 materials, 5 families) is `catalog/taxonomy.json`.
+The element picks WebGPU, then WebGL2 (GLSL generated from the same WGSL by naga), then a CSS tile. It draws only when something changes. Desktop: `integrations/hyprland/elemental-wallpaper` renders per-monitor wallpapers. Tern: `integrations/tern/elemental-ui`. Architecture, measured parity and known gaps: [docs/RUNTIME.md](docs/RUNTIME.md); background research: [docs/RUNTIME_RESEARCH.md](docs/RUNTIME_RESEARCH.md). The material hierarchy to generate (353 materials, 5 families, 33 classes) is `catalog/taxonomy.json`.
 
 ## Documentation
 

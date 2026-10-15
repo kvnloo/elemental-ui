@@ -2,7 +2,7 @@
 
 ```text
 elemental-ui/
-├── catalog/taxonomy.json        the 56 materials to generate (family › class › material)
+├── catalog/taxonomy.json        the 353 materials to generate (family › class › material)
 ├── materials/<family>/*.json    recipes for materials that exist today (schema: schemas/material.schema.json)
 ├── schemas/material.schema.json JSON Schema for recipes
 ├── tools/

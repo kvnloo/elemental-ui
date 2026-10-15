@@ -5,7 +5,7 @@
 | Suite | Command | Proves | Does not prove |
 |---|---|---|---|
 | Recipes and generator | `python3 -m unittest tests.test_elemental` | schema rules, deterministic bytes, seam texels, manifests | visual quality |
-| Catalog and packs | `python3 -m unittest tests.test_catalog` | unique, well-formed ids; 48 atlas codes; kinds; every recipe is in the catalog; one period per map; pack hashes | that the catalog is complete (owner sign-off) |
+| Catalog and packs | `python3 -m unittest tests.test_catalog` | unique, well-formed ids; 48 atlas codes; kinds; id prefix matches family; every recipe is in the catalog; one period per map; pack hashes | that the catalog is complete (owner sign-off) |
 | Blender assets | `python3 -m unittest tests.test_pbr_assets` | the map-loading contract for Blender | Cycles rendering itself (Blender smoke workflow) |
 | Poly Haven importer | `python3 -m unittest tests.test_polyhaven` | host, size and hash guards (offline fixtures) | live API behavior |
 | Rust | `cargo test --release` | pack contract, `Params` layout, naga validation, GPU offscreen render | browser behavior |

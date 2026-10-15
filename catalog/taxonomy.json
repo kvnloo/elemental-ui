@@ -20,64 +20,487 @@
    "id": "geo.basalt.vesicular.v1",
    "display_name": "Basalt",
    "family": "geological",
-   "class": "igneous",
+   "class": "volcanic",
    "kind": "tileable-surface",
    "atlas_code": "GEO-01",
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "geo.basalt.columnar.v1",
+   "display_name": "Columnar Basalt",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "geo.obsidian.conchoidal.v1",
    "display_name": "Obsidian",
    "family": "geological",
-   "class": "igneous",
+   "class": "volcanic",
    "kind": "tileable-surface",
    "atlas_code": "GEO-09",
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "geo.obsidian.snowflake.v1",
+   "display_name": "Snowflake Obsidian",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.obsidian.mahogany.v1",
+   "display_name": "Mahogany Obsidian",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.pumice.frothy.v1",
+   "display_name": "Pumice",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.scoria.red.v1",
+   "display_name": "Red Scoria",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "geo.tuff.volcanic.v1",
    "display_name": "Volcanic Tuff",
    "family": "geological",
-   "class": "igneous",
+   "class": "volcanic",
    "kind": "tileable-surface",
    "atlas_code": "GEO-11",
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "geo.tuff.welded.v1",
+   "display_name": "Welded Tuff",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rhyolite.flow-banded.v1",
+   "display_name": "Flow-banded Rhyolite",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.andesite.porphyritic.v1",
+   "display_name": "Andesite",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.dacite.grey.v1",
+   "display_name": "Dacite",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.ignimbrite.welded.v1",
+   "display_name": "Ignimbrite",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.lava.pahoehoe.v1",
+   "display_name": "Pahoehoe Lava",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.lava.aa.v1",
+   "display_name": "ʻAʻā Lava",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.lava.molten.v1",
+   "display_name": "Molten Lava",
+   "family": "geological",
+   "class": "volcanic",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "geo.granite.speckled.v1",
    "display_name": "Granite",
    "family": "geological",
-   "class": "igneous",
+   "class": "plutonic",
    "kind": "tileable-surface",
    "atlas_code": "GEO-04",
    "origin": "atlas-2026-10-12"
   },
   {
-   "id": "geo.limestone.porous.v1",
-   "display_name": "Limestone",
+   "id": "geo.granite.pink.v1",
+   "display_name": "Pink Granite",
    "family": "geological",
-   "class": "sedimentary",
+   "class": "plutonic",
    "kind": "tileable-surface",
-   "atlas_code": "GEO-03",
-   "origin": "atlas-2026-10-12"
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.granite.porphyritic.v1",
+   "display_name": "Porphyritic Granite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.larvikite.labradorescent.v1",
+   "display_name": "Larvikite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.diorite.salt-pepper.v1",
+   "display_name": "Diorite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.gabbro.dark.v1",
+   "display_name": "Gabbro",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.syenite.feldspar.v1",
+   "display_name": "Syenite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.pegmatite.coarse.v1",
+   "display_name": "Pegmatite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.peridotite.olivine.v1",
+   "display_name": "Peridotite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.anorthosite.pale.v1",
+   "display_name": "Anorthosite",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.porphyry.red.v1",
+   "display_name": "Red Porphyry",
+   "family": "geological",
+   "class": "plutonic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "geo.sandstone.granular.v1",
    "display_name": "Sandstone",
    "family": "geological",
-   "class": "sedimentary",
+   "class": "clastic-sedimentary",
    "kind": "tileable-surface",
    "atlas_code": "GEO-06",
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "geo.sandstone.red.v1",
+   "display_name": "Red Sandstone",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.sandstone.cross-bedded.v1",
+   "display_name": "Cross-bedded Sandstone",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.sandstone.wave.v1",
+   "display_name": "Wave Sandstone",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.conglomerate.pebbly.v1",
+   "display_name": "Conglomerate",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.breccia.angular.v1",
+   "display_name": "Breccia",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.shale.fissile.v1",
+   "display_name": "Shale",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.mudstone.mottled.v1",
+   "display_name": "Mudstone",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.siltstone.laminated.v1",
+   "display_name": "Siltstone",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.greywacke.dark.v1",
+   "display_name": "Greywacke",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.arkose.feldspathic.v1",
+   "display_name": "Arkose",
+   "family": "geological",
+   "class": "clastic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.limestone.porous.v1",
+   "display_name": "Limestone",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": "GEO-03",
+   "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "geo.limestone.fossiliferous.v1",
+   "display_name": "Fossiliferous Limestone",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.limestone.oolitic.v1",
+   "display_name": "Oolitic Limestone",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "geo.travertine.banded.v1",
    "display_name": "Travertine",
    "family": "geological",
-   "class": "sedimentary",
+   "class": "chemical-biogenic-sedimentary",
    "kind": "tileable-surface",
    "atlas_code": "GEO-07",
    "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "geo.chalk.white.v1",
+   "display_name": "Chalk",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.coquina.shell.v1",
+   "display_name": "Coquina",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.dolostone.sugary.v1",
+   "display_name": "Dolostone",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.chert.nodular.v1",
+   "display_name": "Chert",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.flint.knapped.v1",
+   "display_name": "Flint",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.tufa.spongy.v1",
+   "display_name": "Tufa",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.coral-stone.coralline.v1",
+   "display_name": "Coral Stone",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.halite.rock-salt.v1",
+   "display_name": "Rock Salt",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.onyx.banded-calcite.v1",
+   "display_name": "Banded Onyx",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.stromatolite.layered.v1",
+   "display_name": "Stromatolite",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.coal.anthracite.v1",
+   "display_name": "Anthracite",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.jet.lignite.v1",
+   "display_name": "Jet",
+   "family": "geological",
+   "class": "chemical-biogenic-sedimentary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "geo.slate.layered.v1",
@@ -89,6 +512,15 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "geo.slate.green.v1",
+   "display_name": "Green Slate",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "geo.marble.veined.v1",
    "display_name": "Marble",
    "family": "geological",
@@ -96,6 +528,33 @@
    "kind": "tileable-surface",
    "atlas_code": "GEO-05",
    "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "geo.marble.calacatta.v1",
+   "display_name": "Calacatta Marble",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.marble.nero-marquina.v1",
+   "display_name": "Nero Marquina Marble",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.marble.verde.v1",
+   "display_name": "Verde Marble",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "geo.quartzite.interlocking.v1",
@@ -107,6 +566,96 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "geo.schist.mica.v1",
+   "display_name": "Mica Schist",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.schist.garnet.v1",
+   "display_name": "Garnet Schist",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.gneiss.banded.v1",
+   "display_name": "Banded Gneiss",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.gneiss.augen.v1",
+   "display_name": "Augen Gneiss",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.phyllite.sheen.v1",
+   "display_name": "Phyllite",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.hornfels.dense.v1",
+   "display_name": "Hornfels",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.serpentinite.green.v1",
+   "display_name": "Serpentinite",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.soapstone.talc.v1",
+   "display_name": "Soapstone",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.migmatite.swirled.v1",
+   "display_name": "Migmatite",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.amphibolite.dark.v1",
+   "display_name": "Amphibolite",
+   "family": "geological",
+   "class": "metamorphic",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "geo.quartz.crystal.v1",
    "display_name": "Quartz crystal",
    "family": "geological",
@@ -114,6 +663,276 @@
    "kind": "bounded-object",
    "atlas_code": null,
    "origin": "roadmap"
+  },
+  {
+   "id": "geo.amethyst.geode.v1",
+   "display_name": "Amethyst Geode",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.citrine.cluster.v1",
+   "display_name": "Citrine Cluster",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.quartz.smoky.v1",
+   "display_name": "Smoky Quartz",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.quartz.rose.v1",
+   "display_name": "Rose Quartz",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.geode.druzy.v1",
+   "display_name": "Druzy Geode",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.calcite.rhomb.v1",
+   "display_name": "Calcite Rhomb",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.selenite.blade.v1",
+   "display_name": "Selenite",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.celestite.geode.v1",
+   "display_name": "Celestite Geode",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.fluorite.cubic.v1",
+   "display_name": "Fluorite",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.pyrite.cubic.v1",
+   "display_name": "Pyrite",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.galena.cubic.v1",
+   "display_name": "Galena",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.tourmaline.black.v1",
+   "display_name": "Black Tourmaline",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.mica.book.v1",
+   "display_name": "Muscovite Mica",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.sulfur.crystal.v1",
+   "display_name": "Sulfur",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.gypsum.desert-rose.v1",
+   "display_name": "Desert Rose",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.hematite.botryoidal.v1",
+   "display_name": "Botryoidal Hematite",
+   "family": "geological",
+   "class": "crystalline",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.agate.banded.v1",
+   "display_name": "Banded Agate",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.jasper.red.v1",
+   "display_name": "Red Jasper",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.jasper.ocean.v1",
+   "display_name": "Ocean Jasper",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.malachite.banded.v1",
+   "display_name": "Malachite",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.azurite.nodular.v1",
+   "display_name": "Azurite",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.lapis.lazuli.v1",
+   "display_name": "Lapis Lazuli",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.turquoise.matrix.v1",
+   "display_name": "Turquoise",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.labradorite.flash.v1",
+   "display_name": "Labradorite",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.moonstone.adularescent.v1",
+   "display_name": "Moonstone",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.opal.play-of-color.v1",
+   "display_name": "Opal",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rhodochrosite.banded.v1",
+   "display_name": "Rhodochrosite",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.tigereye.chatoyant.v1",
+   "display_name": "Tiger's Eye",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.jade.nephrite.v1",
+   "display_name": "Nephrite Jade",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.amber.inclusions.v1",
+   "display_name": "Amber",
+   "family": "geological",
+   "class": "lapidary",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "geo.pebble.river.v1",
@@ -141,6 +960,186 @@
    "kind": "tileable-surface",
    "atlas_code": null,
    "origin": "roadmap"
+  },
+  {
+   "id": "geo.sand.black-volcanic.v1",
+   "display_name": "Black Volcanic Sand",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.sand.pink-coral.v1",
+   "display_name": "Pink Coral Sand",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.sand.dune-ripple.v1",
+   "display_name": "Dune Ripples",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.gravel.pea.v1",
+   "display_name": "Pea Gravel",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.gravel.crushed.v1",
+   "display_name": "Crushed Gravel",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.scree.talus.v1",
+   "display_name": "Talus Scree",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.cobble.beach.v1",
+   "display_name": "Beach Cobbles",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.soil.loam.v1",
+   "display_name": "Loam",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.soil.peat.v1",
+   "display_name": "Peat",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.soil.laterite.v1",
+   "display_name": "Laterite",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.mud.cracked.v1",
+   "display_name": "Cracked Mud",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.salt-flat.polygon.v1",
+   "display_name": "Salt Flat",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.desert.pavement.v1",
+   "display_name": "Desert Pavement",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.ash.volcanic.v1",
+   "display_name": "Volcanic Ash",
+   "family": "geological",
+   "class": "loose-earth",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.varnish.desert.v1",
+   "display_name": "Desert Varnish",
+   "family": "geological",
+   "class": "weathering",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rock.honeycomb-weathered.v1",
+   "display_name": "Tafoni Weathering",
+   "family": "geological",
+   "class": "weathering",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rock.lichen-patina.v1",
+   "display_name": "Lichen Patina",
+   "family": "geological",
+   "class": "weathering",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rock.iron-stained.v1",
+   "display_name": "Iron-stained Rock",
+   "family": "geological",
+   "class": "weathering",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rock.water-worn.v1",
+   "display_name": "Water-worn Rock",
+   "family": "geological",
+   "class": "weathering",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "geo.rock.frost-shattered.v1",
+   "display_name": "Frost-shattered Rock",
+   "family": "geological",
+   "class": "weathering",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "bot.leaf.broad.v1",
@@ -179,6 +1178,168 @@
    "origin": "roadmap"
   },
   {
+   "id": "bot.leaf.oak.v1",
+   "display_name": "Oak Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.maple.v1",
+   "display_name": "Maple Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.ginkgo.v1",
+   "display_name": "Ginkgo Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.monstera.v1",
+   "display_name": "Monstera Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.banana.v1",
+   "display_name": "Banana Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.lotus.v1",
+   "display_name": "Lotus Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.palm.v1",
+   "display_name": "Palm Frond",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.holly.v1",
+   "display_name": "Holly Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.ivy.v1",
+   "display_name": "Ivy Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.lambs-ear.v1",
+   "display_name": "Lamb's Ear Leaf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.leaf.skeleton.v1",
+   "display_name": "Leaf Skeleton",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.litter.autumn.v1",
+   "display_name": "Autumn Leaf Litter",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.litter.pine-needle.v1",
+   "display_name": "Pine Needle Litter",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.lawn.turf.v1",
+   "display_name": "Lawn Turf",
+   "family": "botanical",
+   "class": "foliage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.cactus.ribbed.v1",
+   "display_name": "Ribbed Cactus",
+   "family": "botanical",
+   "class": "succulents-cacti",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.succulent.echeveria.v1",
+   "display_name": "Echeveria Rosette",
+   "family": "botanical",
+   "class": "succulents-cacti",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.aloe.leaf.v1",
+   "display_name": "Aloe Leaf",
+   "family": "botanical",
+   "class": "succulents-cacti",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.agave.leaf.v1",
+   "display_name": "Agave Leaf",
+   "family": "botanical",
+   "class": "succulents-cacti",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "bot.bark.oak.v1",
    "display_name": "Oak Bark",
    "family": "botanical",
@@ -206,6 +1367,105 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "bot.bark.redwood.v1",
+   "display_name": "Redwood Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.cork-oak.v1",
+   "display_name": "Cork Oak Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.plane.v1",
+   "display_name": "Plane Tree Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.rainbow-eucalyptus.v1",
+   "display_name": "Rainbow Eucalyptus Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.cherry.v1",
+   "display_name": "Cherry Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.beech.v1",
+   "display_name": "Beech Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.palm-trunk.v1",
+   "display_name": "Palm Trunk",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.paperbark.v1",
+   "display_name": "Paperbark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.olive.v1",
+   "display_name": "Olive Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.baobab.v1",
+   "display_name": "Baobab Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bark.cedar.v1",
+   "display_name": "Cedar Bark",
+   "family": "botanical",
+   "class": "bark",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "bot.moss.cushion.v1",
    "display_name": "Moss Cushion",
    "family": "botanical",
@@ -224,31 +1484,355 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "bot.moss.sheet.v1",
+   "display_name": "Sheet Moss",
+   "family": "botanical",
+   "class": "bryophytes-lichens",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.moss.sphagnum.v1",
+   "display_name": "Sphagnum Moss",
+   "family": "botanical",
+   "class": "bryophytes-lichens",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.lichen.foliose.v1",
+   "display_name": "Foliose Lichen",
+   "family": "botanical",
+   "class": "bryophytes-lichens",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.lichen.beard.v1",
+   "display_name": "Beard Lichen",
+   "family": "botanical",
+   "class": "bryophytes-lichens",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.liverwort.thallose.v1",
+   "display_name": "Liverwort",
+   "family": "botanical",
+   "class": "bryophytes-lichens",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fungi.bracket.v1",
+   "display_name": "Bracket Fungus",
+   "family": "botanical",
+   "class": "fungi",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fungi.gills.v1",
+   "display_name": "Mushroom Gills",
+   "family": "botanical",
+   "class": "fungi",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fungi.mycelium.v1",
+   "display_name": "Mycelium Mat",
+   "family": "botanical",
+   "class": "fungi",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fungi.morel.v1",
+   "display_name": "Morel",
+   "family": "botanical",
+   "class": "fungi",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fungi.puffball.v1",
+   "display_name": "Puffball",
+   "family": "botanical",
+   "class": "fungi",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "bot.wood.walnut.v1",
    "display_name": "Walnut Wood Grain",
    "family": "botanical",
-   "class": "wood-fibers",
+   "class": "wood-timber",
    "kind": "tileable-surface",
    "atlas_code": "BOT-09",
-   "origin": "atlas-2026-10-12"
-  },
-  {
-   "id": "bot.bamboo.fiber.v1",
-   "display_name": "Bamboo Fiber",
-   "family": "botanical",
-   "class": "wood-fibers",
-   "kind": "tileable-surface",
-   "atlas_code": "BOT-10",
    "origin": "atlas-2026-10-12"
   },
   {
    "id": "bot.wood.endgrain.v1",
    "display_name": "Wood endgrain",
    "family": "botanical",
-   "class": "wood-fibers",
+   "class": "wood-timber",
    "kind": "tileable-surface",
    "atlas_code": null,
    "origin": "roadmap"
+  },
+  {
+   "id": "bot.wood.oak-quartersawn.v1",
+   "display_name": "Quartersawn Oak",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.maple-birdseye.v1",
+   "display_name": "Bird's-eye Maple",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.cherry.v1",
+   "display_name": "Cherry Wood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.ash.v1",
+   "display_name": "Ash Wood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.teak.v1",
+   "display_name": "Teak",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.ebony.v1",
+   "display_name": "Ebony",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.zebrawood.v1",
+   "display_name": "Zebrawood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.burl.v1",
+   "display_name": "Burl Wood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.spalted.v1",
+   "display_name": "Spalted Wood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.driftwood.v1",
+   "display_name": "Driftwood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.charred.v1",
+   "display_name": "Charred Wood (Yakisugi)",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.olive.v1",
+   "display_name": "Olive Wood",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.cedar.v1",
+   "display_name": "Cedar",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.pine-knotty.v1",
+   "display_name": "Knotty Pine",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.mahogany.v1",
+   "display_name": "Mahogany",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.wood.wenge.v1",
+   "display_name": "Wenge",
+   "family": "botanical",
+   "class": "wood-timber",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.bamboo.fiber.v1",
+   "display_name": "Bamboo Fiber",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": "BOT-10",
+   "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "bot.cork.granulated.v1",
+   "display_name": "Granulated Cork",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.rattan.woven.v1",
+   "display_name": "Woven Rattan",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fiber.coir.v1",
+   "display_name": "Coir",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fiber.sisal.v1",
+   "display_name": "Sisal",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fiber.flax.v1",
+   "display_name": "Flax Linen",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fiber.papyrus.v1",
+   "display_name": "Papyrus",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fiber.raffia.v1",
+   "display_name": "Raffia",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.straw.thatch.v1",
+   "display_name": "Thatch",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.reed.woven.v1",
+   "display_name": "Woven Reed",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.fiber.cotton-boll.v1",
+   "display_name": "Cotton Boll",
+   "family": "botanical",
+   "class": "plant-fibers",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "bot.seedpod.ribbed.v1",
@@ -267,6 +1851,150 @@
    "kind": "bounded-object",
    "atlas_code": "BOT-12",
    "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "bot.pinecone.scales.v1",
+   "display_name": "Pine Cone",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.seedhead.sunflower.v1",
+   "display_name": "Sunflower Seed Head",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.seedpod.lotus.v1",
+   "display_name": "Lotus Seed Pod",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.peel.citrus.v1",
+   "display_name": "Citrus Peel",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.husk.coconut.v1",
+   "display_name": "Coconut Husk",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.acorn.cap.v1",
+   "display_name": "Acorn Cap",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.petal.rose.v1",
+   "display_name": "Rose Petal",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.petal.orchid.v1",
+   "display_name": "Orchid Petal",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.silk.milkweed.v1",
+   "display_name": "Milkweed Silk",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.burr.chestnut.v1",
+   "display_name": "Chestnut Burr",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.seedhead.dandelion.v1",
+   "display_name": "Dandelion Clock",
+   "family": "botanical",
+   "class": "reproductive",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.seaweed.kelp.v1",
+   "display_name": "Kelp",
+   "family": "botanical",
+   "class": "aquatic-plants",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.seaweed.bladderwrack.v1",
+   "display_name": "Bladderwrack",
+   "family": "botanical",
+   "class": "aquatic-plants",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.algae.mat.v1",
+   "display_name": "Algal Mat",
+   "family": "botanical",
+   "class": "aquatic-plants",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.lilypad.pond.v1",
+   "display_name": "Lily Pad",
+   "family": "botanical",
+   "class": "aquatic-plants",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "bot.duckweed.carpet.v1",
+   "display_name": "Duckweed Carpet",
+   "family": "botanical",
+   "class": "aquatic-plants",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "aq.water.still.v1",
@@ -305,6 +2033,60 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "aq.water.rain-ripples.v1",
+   "display_name": "Rain on Water",
+   "family": "aquatic",
+   "class": "water-surfaces",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.water.waterfall.v1",
+   "display_name": "Waterfall Sheet",
+   "family": "aquatic",
+   "class": "water-surfaces",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.water.rapids.v1",
+   "display_name": "Whitewater Rapids",
+   "family": "aquatic",
+   "class": "water-surfaces",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.water.ocean-swell.v1",
+   "display_name": "Ocean Swell",
+   "family": "aquatic",
+   "class": "water-surfaces",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.water.tide-pool.v1",
+   "display_name": "Tide Pool",
+   "family": "aquatic",
+   "class": "water-surfaces",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.water.glacial-milk.v1",
+   "display_name": "Glacial Meltwater",
+   "family": "aquatic",
+   "class": "water-surfaces",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "aq.sand.wet.v1",
    "display_name": "Wet Sand",
    "family": "aquatic",
@@ -323,6 +2105,51 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "aq.pebble.wet.v1",
+   "display_name": "Wet Pebbles",
+   "family": "aquatic",
+   "class": "shore-wet",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.mud.tidal-flat.v1",
+   "display_name": "Tidal Mudflat",
+   "family": "aquatic",
+   "class": "shore-wet",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.rock.algae-slick.v1",
+   "display_name": "Algae-slick Rock",
+   "family": "aquatic",
+   "class": "shore-wet",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.seaglass.frosted.v1",
+   "display_name": "Sea Glass",
+   "family": "aquatic",
+   "class": "shore-wet",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.sand.swash-marks.v1",
+   "display_name": "Swash Marks",
+   "family": "aquatic",
+   "class": "shore-wet",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "aq.haze.underwater.v1",
    "display_name": "Underwater haze",
    "family": "aquatic",
@@ -330,6 +2157,51 @@
    "kind": "volumetric-effect",
    "atlas_code": null,
    "origin": "roadmap"
+  },
+  {
+   "id": "aq.seafloor.sand-ripples.v1",
+   "display_name": "Seafloor Ripples",
+   "family": "aquatic",
+   "class": "underwater",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.seagrass.meadow.v1",
+   "display_name": "Seagrass Meadow",
+   "family": "aquatic",
+   "class": "underwater",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.kelp.forest.v1",
+   "display_name": "Kelp Forest",
+   "family": "aquatic",
+   "class": "underwater",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.bubbles.rising.v1",
+   "display_name": "Rising Bubbles",
+   "family": "aquatic",
+   "class": "underwater",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "aq.light.underwater-rays.v1",
+   "display_name": "Underwater Light Rays",
+   "family": "aquatic",
+   "class": "underwater",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "atm.ice.sheet.v1",
@@ -359,6 +2231,123 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "atm.ice.black.v1",
+   "display_name": "Black Ice",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.ice.glacier.v1",
+   "display_name": "Glacier Ice",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.ice.cracked.v1",
+   "display_name": "Cracked Ice",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.ice.bubbles.v1",
+   "display_name": "Ice with Trapped Bubbles",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.icicle.cluster.v1",
+   "display_name": "Icicles",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.snow.powder.v1",
+   "display_name": "Powder Snow",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.snow.sastrugi.v1",
+   "display_name": "Sastrugi",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.hoarfrost.feathery.v1",
+   "display_name": "Hoarfrost",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.rime.ice.v1",
+   "display_name": "Rime Ice",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.frost.window.v1",
+   "display_name": "Window Frost",
+   "family": "atmospheric",
+   "class": "frozen",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.dew.droplets.v1",
+   "display_name": "Dew Droplets",
+   "family": "atmospheric",
+   "class": "condensation",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.condensation.glass.v1",
+   "display_name": "Condensation on Glass",
+   "family": "atmospheric",
+   "class": "condensation",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.rain.on-glass.v1",
+   "display_name": "Rain on Glass",
+   "family": "atmospheric",
+   "class": "condensation",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "atm.mist.diffuse.v1",
    "display_name": "Mist",
    "family": "atmospheric",
@@ -384,6 +2373,105 @@
    "kind": "volumetric-effect",
    "atlas_code": null,
    "origin": "roadmap"
+  },
+  {
+   "id": "atm.steam.rising.v1",
+   "display_name": "Rising Steam",
+   "family": "atmospheric",
+   "class": "veils",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.haze.heat-shimmer.v1",
+   "display_name": "Heat Shimmer",
+   "family": "atmospheric",
+   "class": "veils",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.smoke.wisps.v1",
+   "display_name": "Smoke Wisps",
+   "family": "atmospheric",
+   "class": "veils",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.dust.motes.v1",
+   "display_name": "Dust Motes",
+   "family": "atmospheric",
+   "class": "veils",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.rain.curtain.v1",
+   "display_name": "Rain Curtain",
+   "family": "atmospheric",
+   "class": "veils",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.cloud.cumulus.v1",
+   "display_name": "Cumulus Clouds",
+   "family": "atmospheric",
+   "class": "sky",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.cloud.stratus.v1",
+   "display_name": "Stratus Clouds",
+   "family": "atmospheric",
+   "class": "sky",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.cloud.mammatus.v1",
+   "display_name": "Mammatus Clouds",
+   "family": "atmospheric",
+   "class": "sky",
+   "kind": "volumetric-effect",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.sky.dusk-gradient.v1",
+   "display_name": "Dusk Sky",
+   "family": "atmospheric",
+   "class": "sky",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.aurora.curtain.v1",
+   "display_name": "Aurora",
+   "family": "atmospheric",
+   "class": "sky",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.sky.night-stars.v1",
+   "display_name": "Night Sky",
+   "family": "atmospheric",
+   "class": "sky",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "atm.biolum.wateredge.v1",
@@ -413,10 +2501,55 @@
    "origin": "roadmap"
   },
   {
+   "id": "atm.glowworm.ceiling.v1",
+   "display_name": "Glowworm Cave Ceiling",
+   "family": "atmospheric",
+   "class": "low-light",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.ember.bed.v1",
+   "display_name": "Ember Bed",
+   "family": "atmospheric",
+   "class": "fire-heat",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.flame.candle.v1",
+   "display_name": "Candle Flame",
+   "family": "atmospheric",
+   "class": "fire-heat",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.ash.smoldering.v1",
+   "display_name": "Smoldering Ash",
+   "family": "atmospheric",
+   "class": "fire-heat",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "atm.charcoal.glowing.v1",
+   "display_name": "Glowing Charcoal",
+   "family": "atmospheric",
+   "class": "fire-heat",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "fauna.scales.fish.v1",
    "display_name": "Fish Scales",
    "family": "fauna",
-   "class": "scales",
+   "class": "scales-skin",
    "kind": "tileable-surface",
    "atlas_code": "FAU-01",
    "origin": "atlas-2026-10-12"
@@ -425,7 +2558,7 @@
    "id": "fauna.scales.snake.v1",
    "display_name": "Snake Scales",
    "family": "fauna",
-   "class": "scales",
+   "class": "scales-skin",
    "kind": "tileable-surface",
    "atlas_code": "FAU-02",
    "origin": "atlas-2026-10-12"
@@ -434,10 +2567,100 @@
    "id": "fauna.hide.reptile.v1",
    "display_name": "Reptile Hide",
    "family": "fauna",
-   "class": "scales",
+   "class": "scales-skin",
    "kind": "tileable-surface",
    "atlas_code": "FAU-03",
    "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "fauna.scales.koi.v1",
+   "display_name": "Koi Scales",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.scales.pangolin.v1",
+   "display_name": "Pangolin Scales",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.hide.crocodile.v1",
+   "display_name": "Crocodile Osteoderms",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.gecko.v1",
+   "display_name": "Gecko Skin",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.chameleon.v1",
+   "display_name": "Chameleon Skin",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.shark.v1",
+   "display_name": "Shark Denticles",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.frog.v1",
+   "display_name": "Frog Skin",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.toad.v1",
+   "display_name": "Toad Skin",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.hide.elephant.v1",
+   "display_name": "Elephant Hide",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.rhino.v1",
+   "display_name": "Rhino Skin",
+   "family": "fauna",
+   "class": "scales-skin",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   },
   {
    "id": "fauna.feather.barbs.v1",
@@ -467,6 +2690,87 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "fauna.fur.wool.v1",
+   "display_name": "Sheep Wool",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.fur.alpaca.v1",
+   "display_name": "Alpaca Fleece",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.quills.hedgehog.v1",
+   "display_name": "Hedgehog Quills",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.feather.down.v1",
+   "display_name": "Down Feathers",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.feather.owl.v1",
+   "display_name": "Owl Plumage",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.feather.pheasant.v1",
+   "display_name": "Pheasant Contour Feathers",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.wing.moth.v1",
+   "display_name": "Moth Wing",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.wing.dragonfly.v1",
+   "display_name": "Dragonfly Wing",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.wing.cicada.v1",
+   "display_name": "Cicada Wing",
+   "family": "fauna",
+   "class": "fibers-plumage",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "fauna.elytra.beetle.v1",
    "display_name": "Beetle Shell",
    "family": "fauna",
@@ -494,6 +2798,51 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "fauna.feather.hummingbird.v1",
+   "display_name": "Hummingbird Gorget",
+   "family": "fauna",
+   "class": "iridescence",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.feather.starling.v1",
+   "display_name": "Starling Plumage",
+   "family": "fauna",
+   "class": "iridescence",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.wing.morpho.v1",
+   "display_name": "Morpho Wing Scales",
+   "family": "fauna",
+   "class": "iridescence",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.beetle.jewel.v1",
+   "display_name": "Jewel Beetle",
+   "family": "fauna",
+   "class": "iridescence",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.mackerel.v1",
+   "display_name": "Mackerel Skin",
+   "family": "fauna",
+   "class": "iridescence",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "fauna.coral.skeleton.v1",
    "display_name": "Coral Skeleton",
    "family": "fauna",
@@ -512,6 +2861,141 @@
    "origin": "atlas-2026-10-12"
   },
   {
+   "id": "fauna.shell.abalone.v1",
+   "display_name": "Abalone Shell",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.shell.cowrie.v1",
+   "display_name": "Cowrie Shell",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.shell.scallop.v1",
+   "display_name": "Scallop Shell",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.shell.conch.v1",
+   "display_name": "Conch Shell",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.shell.nautilus.v1",
+   "display_name": "Nautilus Shell",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.urchin.test.v1",
+   "display_name": "Sea Urchin Test",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.sanddollar.test.v1",
+   "display_name": "Sand Dollar",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.starfish.skin.v1",
+   "display_name": "Starfish Skin",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.sponge.sea.v1",
+   "display_name": "Sea Sponge",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.barnacle.cluster.v1",
+   "display_name": "Barnacle Cluster",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.coral.brain.v1",
+   "display_name": "Brain Coral",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.coral.staghorn.v1",
+   "display_name": "Staghorn Coral",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pearl.lustre.v1",
+   "display_name": "Pearl",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.jellyfish.bell.v1",
+   "display_name": "Jellyfish",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.skin.octopus.v1",
+   "display_name": "Octopus Skin",
+   "family": "fauna",
+   "class": "marine",
+   "kind": "animated-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
    "id": "fauna.pattern.camouflage.v1",
    "display_name": "Camouflage Patterning",
    "family": "fauna",
@@ -519,6 +3003,195 @@
    "kind": "tileable-surface",
    "atlas_code": "FAU-12",
    "origin": "atlas-2026-10-12"
+  },
+  {
+   "id": "fauna.pattern.leopard.v1",
+   "display_name": "Leopard Rosettes",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.tiger.v1",
+   "display_name": "Tiger Stripes",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.zebra.v1",
+   "display_name": "Zebra Stripes",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.giraffe.v1",
+   "display_name": "Giraffe Reticulation",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.cheetah.v1",
+   "display_name": "Cheetah Spots",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.pufferfish.v1",
+   "display_name": "Pufferfish Maze",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.boxfish.v1",
+   "display_name": "Boxfish Hexagons",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.ladybird.v1",
+   "display_name": "Ladybird Spots",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.pattern.poison-frog.v1",
+   "display_name": "Poison Dart Frog",
+   "family": "fauna",
+   "class": "pattern-fields",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.honeycomb.wax.v1",
+   "display_name": "Honeycomb",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.nest.wasp-paper.v1",
+   "display_name": "Wasp Nest Paper",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.nest.bird.v1",
+   "display_name": "Bird's Nest",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.silk.spiderweb.v1",
+   "display_name": "Spider Web",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.silk.cocoon.v1",
+   "display_name": "Silk Cocoon",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "bounded-object",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.eggshell.speckled.v1",
+   "display_name": "Speckled Eggshell",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.eggshell.ostrich.v1",
+   "display_name": "Ostrich Eggshell",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.bone.cancellous.v1",
+   "display_name": "Cancellous Bone",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.horn.keratin.v1",
+   "display_name": "Horn",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.antler.velvet.v1",
+   "display_name": "Antler Velvet",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.carapace.turtle.v1",
+   "display_name": "Turtle Carapace",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
+  },
+  {
+   "id": "fauna.eye.compound.v1",
+   "display_name": "Compound Eye",
+   "family": "fauna",
+   "class": "biogenic-structures",
+   "kind": "tileable-surface",
+   "atlas_code": null,
+   "origin": "expansion-2026-10-14"
   }
  ]
 }
