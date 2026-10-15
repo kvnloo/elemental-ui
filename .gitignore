@@ -15,3 +15,15 @@ __pycache__/
 .venv/
 node_modules/
 .DS_Store
+packs/
+target/
+packages/*/dist/
+integrations/tern/elemental-ui/textures/
+integrations/tern/elemental-ui/elemental.css
+integrations/tern/elemental-ui/materials.luau
+# Crash dumps (e.g. a headless Chromium GPU process)
+core
+core.[0-9]*
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/public/live/

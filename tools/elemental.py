@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 import shutil
 import struct
+import subprocess
 import sys
 import zlib
 
@@ -235,6 +236,131 @@ def generate(recipe: dict, output: Path, size: int) -> dict:
     return manifest
 
 
+PACK_SCHEMA = "elemental-pack/1"
+TAXONOMY = ROOT / "catalog" / "taxonomy.json"
+# name -> (PNG color type, bit depth, bytes per pixel, color space)
+PACK_MAPS = {"basecolor": (2, 8, 3, "srgb"), "normal": (2, 8, 3, "linear"),
+             "roughness": (0, 8, 1, "linear"), "height": (0, 16, 2, "linear")}
+
+
+def taxonomy_index() -> dict[str, dict]:
+    if not TAXONOMY.is_file():
+        return {}
+    return {m["id"]: m for m in json.loads(TAXONOMY.read_text(encoding="utf-8"))["materials"]}
+
+
+def build_pack(recipe: dict, output: Path, size: int) -> dict:
+    """Write one runtime pack: GPU-repeatable maps plus an elemental-pack/1 manifest.
+
+    The draft generator duplicates the first texel at the far edge (its seam test).
+    GPU repeat sampling needs the period instead, so generate size+1 texels and
+    drop the duplicated last row and column.
+    """
+    directory = output / recipe["id"]
+    directory.mkdir(parents=True, exist_ok=True)
+    arrays = generate_arrays(recipe, size + 1)
+    maps = {}
+    for name, (color_type, bits, bpp, space) in PACK_MAPS.items():
+        rows = [row[:size * bpp] for row in arrays[name][:size]]
+        data = encode_png(size, size, color_type, bits, rows)
+        filename = name + ".png"
+        (directory / filename).write_bytes(data)
+        maps[name] = {"file": filename, "mime": "image/png", "width": size, "height": size,
+                      "bit_depth": bits, "color_space": space, "sha256": _hash(data),
+                      "bytes": len(data), "variants": []}
+    avifenc = shutil.which("avifenc")
+    if avifenc:
+        target = directory / "basecolor.avif"
+        subprocess.run([avifenc, "-q", "70", "-s", "6", "--jobs", "1", "--ignore-icc",
+                        str(directory / "basecolor.png"), str(target)],
+                       check=True, capture_output=True)
+        data = target.read_bytes()
+        maps["basecolor"]["variants"].append({"file": target.name, "mime": "image/avif",
+                                              "sha256": _hash(data), "bytes": len(data)})
+    entry = taxonomy_index().get(recipe["id"], {})
+    manifest = {
+        "schema": PACK_SCHEMA,
+        "id": recipe["id"],
+        "display_name": recipe["display_name"],
+        "family": recipe["family"],
+        "class": entry.get("class"),
+        "kind": recipe["kind"],
+        "license": recipe["license"],
+        "status": recipe["status"],
+        "physical_tile_mm": recipe["physical_tile_mm"],
+        "height_mm": recipe["parameters"]["height_mm"],
+        "normal_convention": "opengl-y-up",
+        "tiling": "repeat",
+        "source": {"kind": "procedural-draft", "generator": "tools/elemental.py",
+                   "seed": recipe["seed"], "calibrated": False},
+        "maps": maps,
+    }
+    (directory / "pack.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+                                         encoding="utf-8")
+    return manifest
+
+
+def verify_packs(path: Path) -> list[str]:
+    problems = []
+    packs = sorted(path.glob("*/pack.json")) if path.exists() else []
+    if not packs:
+        return ["no packs found"]
+    for file in packs:
+        manifest = json.loads(file.read_text(encoding="utf-8"))
+        if manifest.get("schema") != PACK_SCHEMA:
+            problems.append(f"{file}: schema is not {PACK_SCHEMA}")
+        for name in PACK_MAPS:
+            entry = manifest.get("maps", {}).get(name)
+            if entry is None:
+                problems.append(f"{file}: missing map {name}")
+                continue
+            for item in [entry, *entry.get("variants", [])]:
+                artifact = file.parent / item["file"]
+                if not artifact.is_file() or _hash(artifact.read_bytes()) != item["sha256"]:
+                    problems.append(f"{artifact}: missing or hash mismatch")
+    return problems
+
+
+TERN_PLUGIN = ROOT / "integrations" / "tern" / "elemental-ui"
+
+
+def tern_css(material_id: str, tile_px: int = 256) -> str:
+    """Tern chrome sheet for one material: base color under a legibility veil."""
+    url = f"textures/{material_id}.png"
+    veil = "linear-gradient(rgb(12 11 10 / 0.58), rgb(12 11 10 / 0.58))"
+    head = "linear-gradient(rgb(12 11 10 / 0.30), rgb(12 11 10 / 0.30))"
+    return (f"/* elemental-ui material {material_id} (generated; GPL-3.0-only) */\n"
+            f"body {{ background-image: {veil}, url({url}); background-size: auto, {tile_px}px {tile_px}px; }}\n"
+            f".tn-head {{ background-image: {head}, url({url}); background-size: auto, {tile_px // 2}px {tile_px // 2}px; }}\n"
+            f"#statusline {{ background-image: {veil}, url({url}); background-size: auto, {tile_px // 2}px {tile_px // 2}px; }}\n")
+
+
+def build_tern_plugin(packs: Path, out: Path, default: str) -> list[str]:
+    index = json.loads((packs / "index.json").read_text(encoding="utf-8"))["packs"]
+    ids = [entry["id"] for entry in index]
+    if default not in ids:
+        raise ValueError(f"default material {default!r} is not in {packs / 'index.json'}")
+    (out / "textures").mkdir(parents=True, exist_ok=True)
+    rows = []
+    for entry in index:
+        manifest = json.loads((packs / entry["pack"]).read_text(encoding="utf-8"))
+        shutil.copyfile(packs / entry["id"] / manifest["maps"]["basecolor"]["file"],
+                        out / "textures" / f"{entry['id']}.png")
+        slug = re.sub(r"[^a-z0-9-]", "-", entry["id"].lower())
+        rows.append(f"\t{{ id = {json.dumps(entry['id'])}, slug = {json.dumps(slug)}, "
+                    f"name = {json.dumps(entry['display_name'])}, css = {json.dumps(tern_css(entry['id']))} }},")
+    (out / "elemental.css").write_text(tern_css(default), encoding="utf-8")
+    (out / "materials.luau").write_text(
+        "--!strict\n-- GENERATED by `python3 tools/elemental.py tern`; do not edit. GPL-3.0-only.\n"
+        "local list = {\n" + "\n".join(rows) + "\n}\n\n"
+        "local by_id = {}\nfor _, m in list do\n\tby_id[m.id] = m\nend\n\n"
+        "return {\n\tlist = list,\n\toff = \"/* elemental-ui: plain chrome */\\n"
+        "body, .tn-head, #statusline { background-image: none; }\\n\",\n"
+        "\tcss = function(id: string): string\n\t\treturn by_id[id].css\n\tend,\n}\n",
+        encoding="utf-8")
+    return ids
+
+
 def verify_outputs(path: Path) -> list[str]:
     problems = []
     manifests = sorted(path.glob("*/manifest.json")) if path.exists() else []
@@ -266,6 +392,15 @@ def main(argv: list[str] | None = None) -> int:
     creation.add_argument("--material", help="material ID (default: all)")
     creation.add_argument("--size", type=int, default=256)
     creation.add_argument("--out", type=Path, default=ROOT / "web" / "assets")
+    packing = commands.add_parser("pack", help="build runtime packs (elemental-pack/1)")
+    packing.add_argument("--material", help="material ID (default: all)")
+    packing.add_argument("--size", type=int, default=512, help="power of two, 16-1024")
+    packing.add_argument("--out", type=Path, default=ROOT / "packs")
+    packing.add_argument("--verify", action="store_true", help="only verify existing packs")
+    tern = commands.add_parser("tern", help="build the Tern plugin's textures and sheets from packs")
+    tern.add_argument("--packs", type=Path, default=ROOT / "packs")
+    tern.add_argument("--out", type=Path, default=TERN_PLUGIN)
+    tern.add_argument("--default", default="geo.basalt.vesicular.v1", help="material for the manifest sheet")
     args = parser.parse_args(argv)
     recipes = all_recipes()
     errors = [f"{r.get('id', 'unknown')}: {problem}" for r in recipes for problem in recipe_errors(r)]
@@ -292,9 +427,39 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
         print(f"Validated {len(recipes)} material recipes" + (" and generated hashes" if args.out else ""))
         return 0
+    if args.command == "tern":
+        ids = build_tern_plugin(args.packs, args.out, args.default)
+        print(f"Tern plugin at {args.out}: {len(ids)} materials, default {args.default}")
+        return 0
     chosen = [r for r in recipes if not args.material or r["id"] == args.material]
     if not chosen:
         parser.error(f"unknown material {args.material!r}")
+    if args.command == "pack":
+        if args.verify:
+            errors = verify_packs(args.out)
+            if errors:
+                print("\n".join(errors), file=sys.stderr)
+                return 1
+            print(f"Verified packs in {args.out}")
+            return 0
+        if args.size < 16 or args.size > 1024 or args.size & (args.size - 1):
+            parser.error("--size must be a power of two between 16 and 1024")
+        args.out.mkdir(parents=True, exist_ok=True)
+        index = []
+        for recipe in chosen:
+            manifest = build_pack(recipe, args.out, args.size)
+            index.append({"id": manifest["id"], "display_name": manifest["display_name"],
+                          "family": manifest["family"], "kind": manifest["kind"],
+                          "pack": f"{manifest['id']}/pack.json"})
+            print(f"{manifest['id']}: pack {args.size}px")
+        existing = args.out / "index.json"
+        if args.material and existing.is_file():
+            kept = [e for e in json.loads(existing.read_text(encoding="utf-8"))["packs"]
+                    if e["id"] not in {e2["id"] for e2 in index}]
+            index = sorted(kept + index, key=lambda e: e["id"])
+        existing.write_text(json.dumps({"schema": PACK_SCHEMA, "packs": index}, indent=2) + "\n",
+                            encoding="utf-8")
+        return 0
     if args.size < 16 or args.size > 2048:
         parser.error("--size must be between 16 and 2048")
     args.out.mkdir(parents=True, exist_ok=True)

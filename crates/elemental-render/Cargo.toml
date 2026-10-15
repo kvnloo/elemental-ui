@@ -1,0 +1,18 @@
+[package]
+name = "elemental-render"
+description = "Native wgpu renderer for elemental-ui material packs (shares shaders/elemental_surface.wgsl with the web)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+elemental-pack.workspace = true
+wgpu.workspace = true
+pollster.workspace = true
+bytemuck.workspace = true
+png.workspace = true
+
+[dev-dependencies]
+naga = { version = "30", features = ["wgsl-in"] }

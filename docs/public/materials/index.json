@@ -1,0 +1,290 @@
+{
+  "asset_type": "AI-generated visual targets, NOT calibrated PBR maps",
+  "source": "OpenAI gpt-image-2 via ChatGPT subscription (Codex OAuth, comfyui-codex-image route)",
+  "large": "4x RealESRGAN_x4plus restoration of the original, resampled to 3072 px wide; detail beyond the original is model-inferred",
+  "images": {
+    "geo.slate.layered.v1": {
+      "file": "geo.slate.layered.v1.webp",
+      "sha256": "cc66049c7e64e92c59916c5ec20cc636ba77a250595a35a5be857fd194de356e",
+      "bytes": 688478,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "a91134fdf1debc73a28188677eb3c7166d9700524dd571b56f6df0c42622c99f"
+      },
+      "prompt": "One raw dark blue-grey layered slate with fine cleavage planes, split edges and subtle rust and mica sheen surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "geo.slate.layered.v1.large.avif",
+        "sha256": "f1ba29fa14b1a73c5532da054c2b9bbefe18b49d3fc5520f25c0ae01ac8bedfc",
+        "bytes": 1561906,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "geo.basalt.vesicular.v1": {
+      "file": "geo.basalt.vesicular.v1.webp",
+      "sha256": "deda3738c213f68d6e404f3ce9ff233b62060d55139df2409f9592e8b1302457",
+      "bytes": 661770,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "9872df811985c2acbbc48776888df7826d54e28f0d96ab9dea8e041a970f6abe"
+      },
+      "prompt": "One raw dark charcoal vesicular basalt with irregular gas cavities of varied size and pale mineral inclusions surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "geo.basalt.vesicular.v1.large.avif",
+        "sha256": "f6e14d64da19b874cde55e3e14ccadd38fde124a650eb4f4cfb2e88ea666876d",
+        "bytes": 1050125,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "geo.limestone.porous.v1": {
+      "file": "geo.limestone.porous.v1.webp",
+      "sha256": "0d5a2531a3141b603de13a7a409df596fbe173f9d0f2807dfd7c6ecc7f505755",
+      "bytes": 559530,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "c395f0cfbdb230754e23caeea534767a344bc0e4cc3555542c2cc25affcacf7b"
+      },
+      "prompt": "One raw warm cream porous limestone with fossil fragments, small pits and soft weathered grain surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "geo.granite.speckled.v1": {
+      "file": "geo.granite.speckled.v1.webp",
+      "sha256": "49c822281de2dca6cf07a9a102010c2ccba2bbdff80121a89ea0950b28cb9b9b",
+      "bytes": 709056,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "b4cd536704aec6da86333efafe304e32b40cc4caf1b3cc4884f2054603f6215e"
+      },
+      "prompt": "One raw polished-but-honed speckled granite, black biotite, white feldspar and smoky grey quartz grains surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "geo.granite.speckled.v1.large.avif",
+        "sha256": "e39bd2c1e94b90b28ffbb8bc01abf696abe4002c513a1f6b1835c14e4df8de1d",
+        "bytes": 1286823,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "geo.marble.veined.v1": {
+      "file": "geo.marble.veined.v1.webp",
+      "sha256": "ef421aec40b0f452230b14f02654efc1ee3d1288a9b8b010b4cc7debd1204d90",
+      "bytes": 138036,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "ac9f8e9e788ae25a3f0f93048fe6d9809284cce4f9166c6d2c8f915907cb876c"
+      },
+      "prompt": "One raw white Carrara marble with soft grey veining and faint translucent crystalline sparkle surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "geo.obsidian.conchoidal.v1": {
+      "file": "geo.obsidian.conchoidal.v1.webp",
+      "sha256": "30f0167ac74d70dd37318fecec5aa1fd555950051a238af9c863cc82e353bb83",
+      "bytes": 458856,
+      "width": 1370,
+      "height": 1148,
+      "original": {
+        "width": 1370,
+        "height": 1148,
+        "sha256": "95e1d0b894a4e3180d71d30e5de8d90689c26eee23d50424c3bce072c4c2be2f"
+      },
+      "prompt": "One raw black obsidian with glossy conchoidal fracture ripples and razor edges, subtle smoky banding surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "bot.bark.oak.v1": {
+      "file": "bot.bark.oak.v1.webp",
+      "sha256": "c31489f8fb8fed2ffdf2227041e0823fd6c18aa5b9b41b6f00a2c36aa7a71242",
+      "bytes": 780788,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "9fccae3c8b512a2a26e1218feb1fcf45e9dd72b62d1f08e397499c5cc90bf7c8"
+      },
+      "prompt": "One raw deeply furrowed mature oak bark with grey-brown ridges, tiny lichen spots and dry fissures surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "bot.bark.oak.v1.large.avif",
+        "sha256": "f2c7d2d4722f6f5fcb2139d7f8dc2772e97e85c84e573f1db0816d2cabcc66a3",
+        "bytes": 1588918,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "bot.moss.cushion.v1": {
+      "file": "bot.moss.cushion.v1.webp",
+      "sha256": "fafee94fe5095d377c9b02b0cb0cd0857948e0c12ae2e5eef5e877e9c653fcd8",
+      "bytes": 727122,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "bd56dacecef22daab51d180fcc58bade15b8616a17973ff7581a107a34faa72d"
+      },
+      "prompt": "One raw dense green cushion moss seen from above, tiny leaflets and fine sporophyte stalks, damp surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "bot.wood.walnut.v1": {
+      "file": "bot.wood.walnut.v1.webp",
+      "sha256": "063c1002b3f63fe57659787dbd0ffed1d68080bfe39626c826c39c6c292acfc5",
+      "bytes": 407386,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "e9acd2c343ceb5e40b706bc12ccd25b47c43856abbf2243e9716bec8b848284a"
+      },
+      "prompt": "One raw planed black walnut wood grain with chocolate tones, flowing figure and fine open pores surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "aq.water.ripple.v1": {
+      "file": "aq.water.ripple.v1.webp",
+      "sha256": "297c4ff5770df05beff0a7671f3e7826cf6b845525fcfa809578498589728202",
+      "bytes": 444616,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "272a5c92328c9811b6f0d4c8ba37ae777026a806ad672393c8f6336069293ff7"
+      },
+      "prompt": "One raw clear shallow water surface with soft ripples over pale sand, gentle caustic light patterns surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "aq.water.ripple.v1.large.avif",
+        "sha256": "7fffc671e52fb7d23baa5548f84cebbc75853e736f090723a06286fc7a81d8b4",
+        "bytes": 587984,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "aq.rock.wet.v1": {
+      "file": "aq.rock.wet.v1.webp",
+      "sha256": "af34bccf38b65220296c9887ea1ec0b0998a8b2ac5e81b61f12c5d61a3c6a637",
+      "bytes": 608222,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "062051250846a3226c28836b8f683c8ab4fc5607319906b052adb91768d778dd"
+      },
+      "prompt": "One raw wet dark river rock surface with water film, glossy highlights and small pooled droplets surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "atm.ice.sheet.v1": {
+      "file": "atm.ice.sheet.v1.webp",
+      "sha256": "91a0955230e61f14c474b862fb6d18d77bb9d10dc72c5763ec28f423c4cd1d69",
+      "bytes": 649066,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "2b7b6889ba53942f26c56bd68151e738ba3ec73bac40ec7015815c65c8d46b65"
+      },
+      "prompt": "One raw thick blue-white lake ice with trapped air bubbles, internal cracks and frosted surface surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "atm.ice.sheet.v1.large.avif",
+        "sha256": "b91250f142e396c10beab8d03fbc988c67043893419aca52dba89e89d0a10789",
+        "bytes": 1064632,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "atm.frost.crystal.v1": {
+      "file": "atm.frost.crystal.v1.webp",
+      "sha256": "c1fc70904ba2e09f261ff8b1ea090d8157cdf97e8cb1ceb8ddec7f4c745647e4",
+      "bytes": 738320,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "81998524c0b08a3d60fd7b48d6f6e24d4f4a38bc685e6918f82cd23b4da5b1aa"
+      },
+      "prompt": "One raw feathery frost crystals growing across a dark glass surface, fern-like dendrites surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "fauna.scales.fish.v1": {
+      "file": "fauna.scales.fish.v1.webp",
+      "sha256": "2a93064711a72f8dd726c3328c19b4bb3367d2ff6f8c6791fb27d5b3d431a87d",
+      "bytes": 661962,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "00ff12abe0e4335087a2d682a68405c016f8653f196c2c1c5143e6c7e4fff368"
+      },
+      "prompt": "One raw overlapping silver fish scales with iridescent blue-green sheen and fine growth rings surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "fauna.wing.butterfly.v1": {
+      "file": "fauna.wing.butterfly.v1.webp",
+      "sha256": "c9d51e8471c0408025052a7d0731d7f0670a8adff84ebf66c8a68adb575a0180",
+      "bytes": 852248,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "64d677bb3a52a641abf94c36411422b971c19ed12abf48787e19743d1c49e5ab"
+      },
+      "prompt": "One raw extreme macro of a blue morpho butterfly wing showing rows of iridescent scales surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "fauna.nacre.shell.v1": {
+      "file": "fauna.nacre.shell.v1.webp",
+      "sha256": "dca524b31f92457940c26c689a92d1fad152cc52c5ac9c11b714e157d9dfec7e",
+      "bytes": 371872,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "3b81aa42f80fa4183e7b788f340c2f2971d8964064be0a4fb17619b6a7c55790"
+      },
+      "prompt": "One raw polished mother-of-pearl nacre with soft rainbow iridescence and layered growth bands surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props.",
+      "large": {
+        "file": "fauna.nacre.shell.v1.large.avif",
+        "sha256": "29328b1dd5663b126e578ad8b9ab66ca54fdc7d6014919afd323a4fa55e568d4",
+        "bytes": 490758,
+        "width": 3072,
+        "height": 2048
+      }
+    },
+    "fauna.feather.barbs.v1": {
+      "file": "fauna.feather.barbs.v1.webp",
+      "sha256": "71d6d991a1522ed1158efba2f7482884fc92c8a9b87fdaaa7f9ebc9eb6f8b398",
+      "bytes": 518062,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "ca30c7288bfcce093a9e1bf493e833eef861cd704ed0cf6a526aa532e8bbc904"
+      },
+      "prompt": "One raw macro of soft brown and cream feather barbs and barbules in parallel rows surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    },
+    "bot.leaf.broad.v1": {
+      "file": "bot.leaf.broad.v1.webp",
+      "sha256": "d482869930b58adf95ed76af5289db11362846141e7116aeb5505b035881c3c6",
+      "bytes": 638370,
+      "width": 1536,
+      "height": 1024,
+      "original": {
+        "width": 1536,
+        "height": 1024,
+        "sha256": "0a21926e132fc570145b214447da120bb28605b20cf311474f4886893aa92932"
+      },
+      "prompt": "One raw macro of a broad green leaf surface filling the frame, branching veins and fine cell texture surface texture, full-frame edge-to-edge, top-down orthographic macro, neutral diffuse light, sharp everywhere, high microdetail. No text, borders, frames or props."
+    }
+  }
+}

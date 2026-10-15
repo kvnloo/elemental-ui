@@ -1,0 +1,14 @@
+[package]
+name = "elemental-pack"
+description = "Read and verify elemental-pack/1 material packs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+png.workspace = true
+sha2 = "0.10"

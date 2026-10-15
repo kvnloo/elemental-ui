@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>elemental-ui runtime demo</title>
+<!-- GPL-3.0-only. Serve the repository root: python3 -m http.server -d . then open /packages/web/demo/ -->
+<style>
+	:root { color-scheme: dark; font-family: Georgia, "Iowan Old Style", serif; background: #141312; color: #ece6dc; }
+	body { margin: 0; padding: clamp(16px, 4vw, 48px); }
+	h1 { font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px; }
+	p.lede { margin: 0 0 24px; color: #b9b1a5; max-width: 60ch; }
+	.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+	elemental-surface { border-radius: 18px; min-height: 220px; padding: 22px; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 18px 40px rgb(0 0 0 / 0.45); }
+	elemental-surface h2 { margin: 0 0 6px; font-weight: 400; text-shadow: 0 1px 2px rgb(0 0 0 / 0.7); }
+	elemental-surface .meta { font: 12px ui-monospace, monospace; color: #e8dfd2; text-shadow: 0 1px 2px #000; }
+	elemental-surface button { margin-top: 18px; font: inherit; color: #f4efe6; background: rgb(0 0 0 / 0.35); border: 1px solid rgb(255 255 255 / 0.25); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
+	elemental-surface button:focus-visible { outline: 2px solid #f0c674; outline-offset: 3px; }
+	nav { margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+	nav a { color: #ece6dc; border: 1px solid #4a4540; border-radius: 999px; padding: 4px 12px; text-decoration: none; font: 13px ui-monospace, monospace; }
+	nav a[aria-current] { background: #ece6dc; color: #141312; }
+</style>
+</head>
+<body>
+<h1>elemental-ui</h1>
+<p class="lede">Material packs relit by one shared WGSL shader. Move the pointer over a surface to move its light. Text and buttons are ordinary HTML layered above the material.</p>
+<nav aria-label="Rendering tier">
+	<a href="?tier=auto">auto</a><a href="?tier=webgpu">webgpu</a><a href="?tier=webgl2">webgl2</a><a href="?tier=css">css</a>
+</nav>
+<div class="grid" id="grid"></div>
+<script type="module">
+	import "../dist/elemental-ui.js";
+	const tier = new URLSearchParams(location.search).get("tier") ?? "auto";
+	for (const a of document.querySelectorAll("nav a")) if (a.search === `?tier=${tier}`) a.setAttribute("aria-current", "page");
+	const index = await (await fetch("../../../packs/index.json")).json();
+	const grid = document.getElementById("grid");
+	for (const entry of index.packs) {
+		const el = document.createElement("elemental-surface");
+		el.setAttribute("material", entry.id);
+		el.setAttribute("packs", "../../../packs");
+		el.setAttribute("tier", tier);
+		el.setAttribute("light", "pointer");
+		el.innerHTML = `<h2>${entry.display_name}</h2><div class="meta">${entry.id}<br>tier: <span class="tier">…</span></div><button type="button">Explore</button>`;
+		el.addEventListener("elemental-ready", (e) => {
+			el.querySelector(".tier").textContent = `${e.detail.tier} (${e.detail.ms.toFixed(0)} ms)`;
+		});
+		grid.append(el);
+	}
+</script>
+</body>
+</html>

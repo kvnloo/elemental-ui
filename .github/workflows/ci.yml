@@ -51,10 +51,17 @@ jobs:
           python-version: '3.11'
       - name: Install pinned browser harness
         run: |
-          python -m pip install playwright==1.57.0
+          python -m pip install playwright==1.57.0 Pillow
           python -m playwright install --with-deps chromium
       - name: Generate three material texture packs
-        run: python tools/elemental.py generate --size 128 --out web/assets
+        run: |
+          python tools/elemental.py generate --size 128 --out web/assets
+          python tools/elemental.py pack --size 128
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build the web runtime (native parity tests skip without elemental-render)
+        run: npm ci && npm run build
       - name: Exercise semantic controls, keyboard, responsive layout, and reduced motion
         run: python -m unittest discover -s tests/browser -v
       - name: Upload mobile/desktop screenshots and size receipts
@@ -66,3 +73,34 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+
+  runtime-packs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build and verify runtime packs
+        run: |
+          python tools/elemental.py pack --size 128
+          python tools/elemental.py pack --verify
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Rust tests (pack contract, shader validation; GPU render skips without an adapter)
+        run: cargo test --release --locked
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install naga for the GLSL drift check
+        run: cargo install naga-cli --version 30.0.1 --locked
+      - name: Web runtime build
+        run: |
+          npm ci
+          npm run glsl:check -w @elemental-ui/web
+          npm run typecheck
+          npm run build
+      - name: Documentation site (VitePress, dead links fail the build)
+        run: npm run docs:build

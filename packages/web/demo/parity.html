@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>elemental-ui parity fixture</title>
+<!-- GPL-3.0-only. Fixed-size surface with the reference parameters, for native/web pixel comparison. -->
+<style>
+	html, body { margin: 0; background: #000; }
+	elemental-surface { width: var(--w); height: var(--h); }
+</style>
+</head>
+<body>
+<script type="module">
+	import { loadPack, renderPixelsWebGPU, REFERENCE } from "../dist/elemental-ui.js";
+	const q = new URLSearchParams(location.search);
+	if (q.get("mode") === "pixels") {
+		// Off-canvas WebGPU render read back to a 2D canvas: verifies the WebGPU
+		// shader path where a WebGPU canvas cannot present (headless browsers).
+		const w = Number(q.get("w") ?? 512), h = Number(q.get("h") ?? 320);
+		const pack = await loadPack("../../../packs", q.get("material") ?? "geo.basalt.vesicular.v1");
+		const pixels = await renderPixelsWebGPU(pack, { ...REFERENCE, width: w, height: h });
+		if (pixels) {
+			const canvas = Object.assign(document.createElement("canvas"), { width: w, height: h });
+			canvas.style.display = "block";
+			canvas.getContext("2d").putImageData(new ImageData(new Uint8ClampedArray(pixels.buffer), w, h), 0, 0);
+			document.body.append(canvas);
+			document.body.dataset.ready = "webgpu-pixels";
+		}
+	} else {
+	const el = document.createElement("elemental-surface");
+	el.style.setProperty("--w", `${q.get("w") ?? 512}px`);
+	el.style.setProperty("--h", `${q.get("h") ?? 320}px`);
+	el.setAttribute("material", q.get("material") ?? "geo.basalt.vesicular.v1");
+	el.setAttribute("packs", "../../../packs");
+	el.setAttribute("tier", q.get("tier") ?? "auto");
+	el.setAttribute("light", "static");
+	el.addEventListener("elemental-ready", (e) => {
+		if (e.detail.tier !== "css" || q.get("tier") === "css") {
+			requestAnimationFrame(() => requestAnimationFrame(() => { document.body.dataset.ready = e.detail.tier; }));
+		}
+	});
+	document.body.append(el);
+	}
+</script>
+</body>
+</html>
